@@ -65,6 +65,12 @@ Kod w Main.kt → kompilacja → program uruchomiony na JVM → wynik w konsoli
 
 Wejdź na <https://www.jetbrains.com/idea/download/> i zainstaluj IntelliJ IDEA. Wersja darmowa wystarcza do tego kursu.
 
+**Jak sprawdzić JDK?** Możesz wybrać już zainstalowane środowisko lub pobrać je przez **Download JDK**. Po utworzeniu projektu ustawienia znajdziesz w **File → Project Structure → SDKs** (zrzut poniżej pokazuje tę drugą metodę).
+
+![Okno Project Structure z opcjami dodawania i pobierania JDK](../obrazy/lekcja-01/krok-2-jdk-dodaj-lub-pobierz.png)
+
+*Ilustracja 1. Dodawanie istniejącego JDK z dysku lub pobieranie nowego JDK; wygląd interfejsu może być nieco inny na Twoim systemie.*
+
 ### Krok 2. Utwórz projekt
 
 1. Uruchom IntelliJ IDEA i wybierz **New Project** (lub **File → New → Project**).
@@ -74,6 +80,10 @@ Wejdź na <https://www.jetbrains.com/idea/download/> i zainstaluj IntelliJ IDEA.
 5. Wybierz **JDK 25**. Jeśli go nie masz, skorzystaj z opcji **Download JDK** dostępnej w kreatorze.
 6. Jeśli jest opcja **Add sample code**, możesz ją włączyć.
 7. Kliknij **Create** i pozwól projektowi zakończyć pierwszą synchronizację.
+
+![Kreator nowego projektu Kotlin z Gradle i Kotlin DSL](../obrazy/lekcja-01/krok-2-nowy-projekt.png)
+
+*Ilustracja 2. Wybierz Kotlin, Gradle, Kotlin DSL i właściwą wersję JDK. Na zdjęciu przykładowego kreatora widoczny jest JDK 20 — w naszym kursie wybierz JDK 25.*
 
 > Dlaczego JDK 25? W tym kursie docelowo będziemy tworzyć pluginy dla wybranych współczesnych wersji Spigot i Paper. Wymagana wersja Javy zależy od konkretnej wersji serwera; nie każdy Spigot wymaga Java 25. Nie musisz na razie konfigurować serwera Minecraft. Jeśli już masz działający projekt na zgodnym JDK, nie trzeba instalować kilku wersji tylko do tej lekcji.
 
@@ -94,6 +104,10 @@ KotlinNauka/
 
 Jeśli `Main.kt` nie powstał automatycznie, kliknij prawym przyciskiem folder `src/main/kotlin`, wybierz **New → Kotlin Class/File**, utwórz **File** o nazwie `Main` i wpisz kod z następnej sekcji.
 
+![Panel projektu IntelliJ z plikiem Main.kt w folderze src/main/kotlin](../obrazy/lekcja-01/krok-3-main-kt.png)
+
+*Ilustracja 3. Rozwiń foldery `src → main → kotlin` i kliknij `Main.kt`. W przykładzie pokazano projekt o nazwie `greeting`; Twój nazywa się `KotlinNauka`.*
+
 **Nie edytuj na razie `build.gradle.kts`.** To skrypt służący do konfiguracji budowania projektu, a nie miejsce, w którym piszemy dzisiejszy program.
 
 ## 4. Pierwszy działający program
@@ -107,6 +121,10 @@ fun main() {
 ```
 
 Kliknij zielony symbol uruchomienia obok `main()` i wybierz **Run**.
+
+![Uruchamianie MainKt przez zieloną ikonę Run](../obrazy/lekcja-01/krok-4-uruchom-program.png)
+
+*Ilustracja 4. Kliknij zielony trójkąt przy funkcji `main()`, a następnie wybierz **Run 'MainKt'**. Rezultat pojawi się w dolnym panelu **Run**.*
 
 Oczekiwany wynik programu:
 
@@ -612,6 +630,12 @@ Powodzenia, Alex!
 8. Komentarze pomagają wyjaśniać kod i nie są wykonywane jako polecenia programu.
 
 ---
+
+## Zrzuty ekranu: źródła i prawa
+
+Cztery ilustracje pochodzą z oficjalnych materiałów [Kotlin](https://kotlinlang.org/docs/jvm-get-started.html) i [IntelliJ IDEA](https://www.jetbrains.com/help/idea/create-your-first-kotlin-app.html) oraz dokumentacji [konfiguracji SDK](https://www.jetbrains.com/help/idea/sdk.html). Kopie znajdują się w folderze [`obrazy/lekcja-01/`](../obrazy/lekcja-01/), wraz z opisem pochodzenia. Interfejs może różnić się między wersjami IDE i systemami operacyjnymi.
+
+**Atrybucja:** Copyright © 2026 JetBrains s.r.o., used with permission. IntelliJ IDEA and the IntelliJ IDEA logo are trademarks of JetBrains s.r.o. [Wytyczne JetBrains dotyczące marki](https://www.jetbrains.com/company/brand/). Materiał edukacyjny SyntaxDevTeam nie jest oficjalnym materiałem JetBrains i nie jest przez JetBrains sponsorowany ani zatwierdzony.
 
 ## Dodatkowe źródła (dla chętnych)
 

@@ -22,7 +22,7 @@ Kurs w języku polskim dla osoby, która **nigdy wcześniej nie programowała**.
 ## Materiały
 
 - [PLAN_KURSU.md](PLAN_KURSU.md) — pełny plan 36 lekcji i zasady zgodności API.
-- [Lekcja 01 — środowisko, pierwszy program i pierwsze dane](lekcje/01_PIERWSZY_PROGRAM_KOTLIN.md) — kompletna lekcja z ćwiczeniami, mini-testem i rozwiązaniami.
+- [Lekcja 01 — środowisko, pierwszy program i pierwsze dane](lekcje/01_PIERWSZY_PROGRAM_KOTLIN.md) — kompletna lekcja z **4 zrzutami ekranu IntelliJ IDEA**, ćwiczeniami, mini-testem i rozwiązaniami.
 
 Pozostałe lekcje będą tworzone **po jednej**, a nie masowo. Każda zostanie udostępniona w osobnym pliku `.md`.
 
