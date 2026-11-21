@@ -23,6 +23,7 @@ Kurs w języku polskim dla osoby, która **nigdy wcześniej nie programowała**.
 
 - [PLAN_KURSU.md](PLAN_KURSU.md) — pełny plan 36 lekcji i zasady zgodności API.
 - [Lekcja 01 — środowisko, pierwszy program i pierwsze dane](lekcje/01_PIERWSZY_PROGRAM_KOTLIN.md) — kompletna lekcja z **4 zrzutami ekranu IntelliJ IDEA**, ćwiczeniami, mini-testem i rozwiązaniami.
+- [Lekcja 02 — zmienne, typy danych i tekst](lekcje/02_ZMIENNE_TYPY_DANYCH_I_TEKST.md) — `val`, `var`, typy danych, konwersje, szablony tekstu, **8 ćwiczeń**, mini-test i projekt konsolowy.
 
 Pozostałe lekcje będą tworzone **po jednej**, a nie masowo. Każda zostanie udostępniona w osobnym pliku `.md`.
 
@@ -38,7 +39,7 @@ Spigot API daje dostęp do wspólnych, podstawowych mechanizmów Bukkit: eventó
 
 ## Informacje dla prowadzącego
 
-W przykładach używamy `kotlin` zamiast `python-run`. Lekcje zawierają metrykę (poziom, numer, temat, czas, wymagania), teorię od podstaw, kompletne przykłady, analizę, typowe błędy, ćwiczenia, mini-test oraz rozwiązania na końcu. Dokładne wersje narzędzi i bibliotek w lekcjach pluginowych sprawdzamy na bieżąco.
+Kompletne programy do uruchomienia oznaczamy jako `kotlin-run`. Fragmenty niepełne, błędny kod i zadania do samodzielnego wykonania pozostają oznaczone jako `kotlin`. Lekcje zawierają metrykę (poziom, numer, temat, czas, wymagania), teorię od podstaw, kompletne przykłady, analizę, typowe błędy, ćwiczenia, mini-test oraz rozwiązania na końcu. Dokładne wersje narzędzi i bibliotek w lekcjach pluginowych sprawdzamy na bieżąco.
 
 ## Dokumentacja
 
