@@ -16,7 +16,7 @@ Celem **nie** jest obiecywanie poziomu profesjonalnego programisty po 36 dniach.
 
 ## Zasady prowadzenia lekcji
 
-1. **Jeden numer = jeden osobny dokument Markdown** w `lekcje/`. Obecnie dostępne są lekcje 1–2; pozostałe pozycje stanowią program kursu.
+1. **Jeden numer = jeden osobny dokument Markdown** w `lekcje/`. Obecnie dostępne są lekcje 1–3; pozostałe pozycje stanowią program kursu.
 2. Każdy dokument zawiera metrykę: **Poziom / Lekcja / Temat / Czas / Potrzebujesz**, cele i wymagania wstępne.
 3. Każde nowe pojęcie wyjaśniamy od zera, bez porównywania do Javy lub Pythona i bez zakładania znajomości Minecraft API.
 4. Kompletne, samodzielnie uruchamialne przykłady i gotowe rozwiązania oznaczamy jako `kotlin-run`; fragmenty kodu, pytania analityczne, zadania do samodzielnego wykonania i celowo uszkodzone programy oznaczamy jako `kotlin`. Wyniki programów pokazujemy osobno.
@@ -33,7 +33,7 @@ Celem **nie** jest obiecywanie poziomu profesjonalnego programisty po 36 dniach.
 
 01. **Środowisko, pierwszy program i pierwsze dane.** IntelliJ IDEA, JDK, JVM, `fun main()`, `print`, `println`, komentarze, `val`, szablony tekstu. *Dokument dostępny.*
 02. **Zmienne, typy danych i tekst.** `val`, `var`, `Int`, `Long`, `Double`, `Boolean`, `Char`, `String`, wnioskowanie typów, konwersje, interpolacja. *Dokument dostępny.*
-03. **Operatory i wejście użytkownika.** Arytmetyka, operatory porównania, `readln()`, parsowanie i sprawdzanie danych.
+03. **Operatory i wejście użytkownika.** Arytmetyka, operatory porównania, `readln()`, parsowanie i sprawdzanie danych. *Dokument dostępny.*
 04. **Warunki i logika.** `if`, `else`, `when`, `&&`, `||`, `!`; rozwiązywanie problemów decyzyjnych.
 05. **Pętle i zakresy.** `for`, `while`, `do-while`, `until`, `downTo`, `break`, `continue`.
 06. **Funkcje i podział programu.** Parametry, typ zwracany, argumenty domyślne, zasięg, wielokrotne użycie funkcji.
@@ -135,4 +135,4 @@ Celem **nie** jest obiecywanie poziomu profesjonalnego programisty po 36 dniach.
 - [Paper — Paper plugins](https://docs.papermc.io/paper/dev/getting-started/paper-plugins/)
 - [Folia — dokumentacja projektu](https://github.com/PaperMC/Folia)
 
-**Stan realizacji:** przygotowane: plan, lekcje 1–2. **Lekcje 3–36 będą opracowywane pojedynczo**, zgodnie z programem.
+**Stan realizacji:** przygotowane: plan, lekcje 1–3. **Lekcje 4–36 będą opracowywane pojedynczo**, zgodnie z programem.
