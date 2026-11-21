@@ -9,6 +9,8 @@
 **Potrzebujesz:** komputer, dostęp do internetu przy instalacji, IntelliJ IDEA, JDK 25, chęć eksperymentowania  
 **Wymagana wiedza:** żadna — kurs jest przeznaczony także dla osoby, która nigdy nie programowała
 
+> **Wskazówka dla osób korzystających z edytora kursu:** kompletne przykłady i gotowe rozwiązania są oznaczone jako `kotlin-run` — możesz uruchamiać je bezpośrednio. Zadania do samodzielnej analizy i kod zawierający celowe błędy mają znacznik `kotlin`.
+
 ---
 
 > **Ścieżka nauki:** najpierw Kotlin i programy konsolowe, później pierwsze pluginy w oparciu o **Spigot API**, a następnie świadome przejście na **Paper API**. Rodzaje silników serwerowych i znaczenie wyboru API wyjaśnimy w osobnej **lekcji 15**. Na tym etapie wystarczy wiedzieć, że plugin jest dodatkiem uruchamianym przez odpowiedni serwer, a nie zwykłym programem konsolowym.
@@ -114,7 +116,7 @@ Jeśli `Main.kt` nie powstał automatycznie, kliknij prawym przyciskiem folder `
 
 Otwórz `Main.kt` i wpisz całość:
 
-```kotlin
+```kotlin-run
 fun main() {
     println("Cześć, świecie!")
 }
@@ -153,7 +155,7 @@ Zamień tekst na własne powitanie, uruchom program ponownie i upewnij się, że
 
 ## 5. Kilka instrukcji i kolejność wykonania
 
-```kotlin
+```kotlin-run
 fun main() {
     println("Start programu")
     println("Wczytywanie danych...")
@@ -175,7 +177,7 @@ Na tym etapie instrukcje wykonują się **po kolei, od góry do dołu**. Jeżeli
 
 Obie funkcje wypisują informacje, ale tylko `println()` kończy bieżący wiersz:
 
-```kotlin
+```kotlin-run
 fun main() {
     print("Serwer: ")
     println("CraftWorld")
@@ -198,7 +200,7 @@ Tryb: Survival
 
 ## 6. Tekst i liczba — dlaczego cudzysłowy mają znaczenie?
 
-```kotlin
+```kotlin-run
 fun main() {
     println("12")
     println(12)
@@ -221,7 +223,7 @@ Nazywamy to różnymi **typami danych**. Dzisiaj wystarczy rozpoznać różnicę
 
 Jeśli chcesz wypisać słowo, użyj cudzysłowów:
 
-```kotlin
+```kotlin-run
 fun main() {
     println("Minecraft")
 }
@@ -233,7 +235,7 @@ Zapis `println(Minecraft)` jest błędny **w naszym przykładzie**, ponieważ ni
 
 Dotąd wpisywaliśmy tekst bezpośrednio do `println()`. Spróbuj czegoś bardziej praktycznego:
 
-```kotlin
+```kotlin-run
 fun main() {
     val serverName = "CraftWorld"
     val onlinePlayers = 12
@@ -263,7 +265,7 @@ CraftWorld
 
 Wypisanie samej nazwy to za mało. Chcemy zbudować pełne komunikaty:
 
-```kotlin
+```kotlin-run
 fun main() {
     val serverName = "CraftWorld"
     val onlinePlayers = 12
@@ -284,7 +286,7 @@ W tekstowym napisie `$serverName` oznacza: **wstaw w tym miejscu wartość przec
 
 Uwaga na różnicę:
 
-```kotlin
+```kotlin-run
 fun main() {
     val serverName = "CraftWorld"
 
@@ -308,7 +310,7 @@ Pierwsza linia wypisuje dosłowny tekst. Druga i trzecia korzystają z wartości
 
 ## 8. Komentarze — wyjaśnienia, a nie instrukcje
 
-```kotlin
+```kotlin-run
 fun main() {
     // Nazwa serwera, którą pokażemy w powitaniu
     val serverName = "CraftWorld"
@@ -325,7 +327,7 @@ Witamy na CraftWorld!
 
 Komentarz rozpoczynający się od `//` kończy się wraz z końcem wiersza. Nie pojawia się w wyniku programu. Dłuższy komentarz można zapisać tak:
 
-```kotlin
+```kotlin-run
 /*
 To przykładowy program konsolowy.
 Później wykorzystamy podobne informacje w pluginie.
@@ -343,7 +345,7 @@ Połączymy teraz: `main`, `println`, `print`, komentarze, `val` oraz szablony t
 
 Przepisz i uruchom **cały** program:
 
-```kotlin
+```kotlin-run
 fun main() {
     // Dane naszej przykładowej społeczności
     val serverName = "CraftWorld"
@@ -517,7 +519,7 @@ Masz działające środowisko, pierwszy program oraz praktyczny przykład użyci
 
 ### Zadanie 1
 
-```kotlin
+```kotlin-run
 fun main() {
     println("Dzień dobry!")
     println("Rozpoczynam kurs Kotlina.")
@@ -527,7 +529,7 @@ fun main() {
 
 ### Zadanie 2
 
-```kotlin
+```kotlin-run
 fun main() {
     print("Nick gracza: ")
     println("Alex")
@@ -545,7 +547,7 @@ Pierwsze dwa `print` nie kończą wiersza. Dopiero `println("serwerze!")` dodaje
 
 ### Zadanie 4 — jedna z możliwych wersji
 
-```kotlin
+```kotlin-run
 fun main() {
     val playerName = "Alex"
     val playerLevel = 10
@@ -558,7 +560,7 @@ fun main() {
 
 ### Zadanie 5
 
-```kotlin
+```kotlin-run
 fun main() {
     val serverName = "CraftWorld"
     println("Witaj na $serverName!")
@@ -569,7 +571,7 @@ W oryginale brakowało `)` przy `main`, klamry `}` na końcu i użyto `servernam
 
 ### Zadanie 6 — jedna z możliwych wersji
 
-```kotlin
+```kotlin-run
 fun main() {
     val playerName = "Alex"
 
@@ -583,7 +585,7 @@ Po zmianie `"Alex"` na inny nick wszystkie trzy linie wykorzystają nową warto�
 
 ### Zadanie 7 — przykładowy projekt
 
-```kotlin
+```kotlin-run
 fun main() {
     // Dane profilu — zmieniamy je w jednym miejscu
     val playerName = "Alex"
