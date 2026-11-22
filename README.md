@@ -25,6 +25,7 @@ Kurs w języku polskim dla osoby, która **nigdy wcześniej nie programowała**.
 - [Lekcja 01 — środowisko, pierwszy program i pierwsze dane](lekcje/01_PIERWSZY_PROGRAM_KOTLIN.md) — kompletna lekcja z **4 zrzutami ekranu IntelliJ IDEA**, ćwiczeniami, mini-testem i rozwiązaniami.
 - [Lekcja 02 — zmienne, typy danych i tekst](lekcje/02_ZMIENNE_TYPY_DANYCH_I_TEKST.md) — `val`, `var`, typy danych, konwersje, szablony tekstu, **8 ćwiczeń**, mini-test i projekt konsolowy.
 - [Lekcja 03 — operatory i wejście użytkownika](lekcje/03_OPERATORY_I_WEJSCIE_UZYTKOWNIKA.md) — działania matematyczne, porównania, `readln()`, `toIntOrNull()`, **8 ćwiczeń**, mini-test i kalkulator sklepu serwerowego.
+- [Lekcja 04 — warunki i logika](lekcje/04_WARUNKI_I_LOGIKA.md) — `if`, `else if`, `else`, `when`, `&&`, `||`, `!`, **8 ćwiczeń**, mini-test i projekt systemu rezerwacji.
 
 Pozostałe lekcje będą tworzone **po jednej**, a nie masowo. Każda zostanie udostępniona w osobnym pliku `.md`.
 
