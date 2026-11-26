@@ -27,6 +27,7 @@ Kurs w języku polskim dla osoby, która **nigdy wcześniej nie programowała**.
 - [Lekcja 03 — operatory i wejście użytkownika](lekcje/03_OPERATORY_I_WEJSCIE_UZYTKOWNIKA.md) — działania matematyczne, porównania, `readln()`, `toIntOrNull()`, **8 ćwiczeń**, mini-test i kalkulator sklepu serwerowego.
 - [Lekcja 04 — warunki i logika](lekcje/04_WARUNKI_I_LOGIKA.md) — `if`, `else if`, `else`, `when`, `&&`, `||`, `!`, **8 ćwiczeń**, mini-test i projekt systemu rezerwacji.
 - [Lekcja 05 — pętle i zakresy](lekcje/05_PETLE_I_ZAKRESY.md) — `for`, `while`, `do-while`, `until`, `downTo`, `step`, `break`, `continue`, **8 ćwiczeń**, mini-test i projekt dziennika wydatków.
+- [Lekcja 06 — funkcje i podział programu](lekcje/06_FUNKCJE_I_PODZIAL_PROGRAMU.md) — `fun`, parametry, `return`, `Unit`, argumenty domyślne i nazwane, zasięg zmiennych, **8 ćwiczeń**, mini-test oraz projekt kasy biletowej.
 
 Pozostałe lekcje będą tworzone **po jednej**, a nie masowo. Każda zostanie udostępniona w osobnym pliku `.md`.
 
