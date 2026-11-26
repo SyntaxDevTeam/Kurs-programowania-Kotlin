@@ -26,6 +26,7 @@ Kurs w języku polskim dla osoby, która **nigdy wcześniej nie programowała**.
 - [Lekcja 02 — zmienne, typy danych i tekst](lekcje/02_ZMIENNE_TYPY_DANYCH_I_TEKST.md) — `val`, `var`, typy danych, konwersje, szablony tekstu, **8 ćwiczeń**, mini-test i projekt konsolowy.
 - [Lekcja 03 — operatory i wejście użytkownika](lekcje/03_OPERATORY_I_WEJSCIE_UZYTKOWNIKA.md) — działania matematyczne, porównania, `readln()`, `toIntOrNull()`, **8 ćwiczeń**, mini-test i kalkulator sklepu serwerowego.
 - [Lekcja 04 — warunki i logika](lekcje/04_WARUNKI_I_LOGIKA.md) — `if`, `else if`, `else`, `when`, `&&`, `||`, `!`, **8 ćwiczeń**, mini-test i projekt systemu rezerwacji.
+- [Lekcja 05 — pętle i zakresy](lekcje/05_PETLE_I_ZAKRESY.md) — `for`, `while`, `do-while`, `until`, `downTo`, `step`, `break`, `continue`, **8 ćwiczeń**, mini-test i projekt dziennika wydatków.
 
 Pozostałe lekcje będą tworzone **po jednej**, a nie masowo. Każda zostanie udostępniona w osobnym pliku `.md`.
 

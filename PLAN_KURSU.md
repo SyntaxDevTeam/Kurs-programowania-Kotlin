@@ -16,7 +16,7 @@ Celem **nie** jest obiecywanie poziomu profesjonalnego programisty po 36 dniach.
 
 ## Zasady prowadzenia lekcji
 
-1. **Jeden numer = jeden osobny dokument Markdown** w `lekcje/`. Obecnie dostępne są lekcje 1–4; pozostałe pozycje stanowią program kursu.
+1. **Jeden numer = jeden osobny dokument Markdown** w `lekcje/`. Obecnie dostępne są lekcje 1–5; pozostałe pozycje stanowią program kursu.
 2. Każdy dokument zawiera metrykę: **Poziom / Lekcja / Temat / Czas / Potrzebujesz**, cele i wymagania wstępne.
 3. Każde nowe pojęcie wyjaśniamy od zera, bez porównywania do Javy lub Pythona i bez zakładania znajomości Minecraft API.
 4. Kompletne, samodzielnie uruchamialne przykłady i gotowe rozwiązania oznaczamy jako `kotlin-run`; fragmenty kodu, pytania analityczne, zadania do samodzielnego wykonania i celowo uszkodzone programy oznaczamy jako `kotlin`. Wyniki programów pokazujemy osobno.
@@ -35,7 +35,7 @@ Celem **nie** jest obiecywanie poziomu profesjonalnego programisty po 36 dniach.
 02. **Zmienne, typy danych i tekst.** `val`, `var`, `Int`, `Long`, `Double`, `Boolean`, `Char`, `String`, wnioskowanie typów, konwersje, interpolacja. *Dokument dostępny.*
 03. **Operatory i wejście użytkownika.** Arytmetyka, operatory porównania, `readln()`, parsowanie i sprawdzanie danych. *Dokument dostępny.*
 04. **Warunki i logika.** `if`, `else`, `when`, `&&`, `||`, `!`; rozwiązywanie problemów decyzyjnych. *Dokument dostępny.*
-05. **Pętle i zakresy.** `for`, `while`, `do-while`, `until`, `downTo`, `break`, `continue`.
+05. **Pętle i zakresy.** `for`, `while`, `do-while`, `until`, `downTo`, `break`, `continue`. *Dokument dostępny.*
 06. **Funkcje i podział programu.** Parametry, typ zwracany, argumenty domyślne, zasięg, wielokrotne użycie funkcji.
 07. **Kolekcje.** Listy, tablice, mapy, zbiory, iterowanie, modyfikowanie i wyszukiwanie.
 08. **Null, wyjątki i projekt konsolowy.** `?`, `?.`, `?:`, `try/catch`, debugowanie i konsolowy rejestr graczy.
@@ -135,4 +135,4 @@ Celem **nie** jest obiecywanie poziomu profesjonalnego programisty po 36 dniach.
 - [Paper — Paper plugins](https://docs.papermc.io/paper/dev/getting-started/paper-plugins/)
 - [Folia — dokumentacja projektu](https://github.com/PaperMC/Folia)
 
-**Stan realizacji:** przygotowane: plan, lekcje 1–4. **Lekcje 5–36 będą opracowywane pojedynczo**, zgodnie z programem.
+**Stan realizacji:** przygotowane: plan, lekcje 1–5. **Lekcje 6–36 będą opracowywane pojedynczo**, zgodnie z programem.
