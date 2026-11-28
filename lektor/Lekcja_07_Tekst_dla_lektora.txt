@@ -1,0 +1,110 @@
+Kotlin od zera — od pierwszego programu do pluginów Minecraft.
+Lekcja siódma. Kolekcje: listy, tablice, mapy i zbiory w Kotlinie.
+
+Witaj ponownie. W poprzedniej lekcji nauczyliśmy się dzielić program na mniejsze części za pomocą funkcji. Dzisiaj poznasz kolejny sposób na porządkowanie programu. Tym razem chodzi nie o instrukcje, ale o informacje, z których te instrukcje korzystają.
+
+Wyobraź sobie, że przygotowujesz listę zakupów. Chcesz kupić chleb, mleko i jabłka. Umiesz już zapisać każdą z tych nazw w osobnej zmiennej. Przy trzech produktach nie sprawia to większego kłopotu. Ale gdy lista urośnie do trzydziestu pozycji, potrzebujesz czegoś wygodniejszego.
+
+Kotlin pozwala przechowywać wiele informacji razem. Dzięki temu można wyświetlić je w jednej pętli, wyszukać konkretną informację albo zmienić zawartość całej struktury bez przepisywania programu.
+
+Dzisiaj poznamy cztery takie struktury. Są to listy, tablice, zbiory i mapy. Każda ma nieco inne zastosowanie. Nie musisz uczyć się ich nazw na pamięć od pierwszego wysłuchania. Najważniejsze jest zrozumienie różnic.
+
+Zacznijmy od listy. Lista przechowuje elementy w określonej kolejności. Mogą się na niej powtarzać. Wyobraź sobie listę zakupów, którą zapisujesz na kartce: najpierw chleb, potem mleko, a na końcu jabłka.
+
+W Kotlinie tworzymy taką listę za pomocą funkcji listOf, czyli list of. W nawiasach wpisujemy kolejne produkty, oddzielone przecinkami. Nazwy produktów są tekstami, więc zapisujemy je w cudzysłowach. Całą listę możemy przypisać do wartości o nazwie produkty.
+
+Program potrafi wyświetlić wszystkie elementy naraz. Może także podać ich liczbę. Służy do tego właściwość size, po angielsku rozmiar. W naszym przykładzie rozmiar wynosi trzy. Zwróć uwagę, że po słowie size nie piszemy nawiasów okrągłych. Odczytujemy właściwość, a nie wywołujemy funkcji.
+
+Kotlin rozpozna, że jest to lista tekstów, ponieważ wszystkie przekazane elementy są tekstami. Jeżeli w kodzie zobaczysz nazwę List, a za nią słowo String w nawiasach ostrych, oznacza to listę tekstów. To tylko informacja o rodzaju danych, które przechowujemy.
+
+Teraz bardzo ważna rzecz: pozycje elementów nazywamy indeksami. W zwykłym życiu zaczynamy numerowanie od jedynki. W Kotlinie indeks pierwszego elementu wynosi zero.
+
+Chleb ma więc indeks zero. Mleko ma indeks jeden. Jabłka mają indeks dwa. Chociaż na liście znajdują się trzy produkty, ostatni indeks wynosi dwa.
+
+Aby odczytać konkretny element, za nazwą listy wpisujemy indeks w nawiasach kwadratowych. Gdy odczytamy indeks jeden, otrzymamy mleko. Jeżeli spróbujemy odczytać indeks trzy, program napotka błąd. Takiej pozycji nie ma.
+
+Możemy się przed tym zabezpieczyć. Właściwość indices udostępnia zakres poprawnych indeksów. Słowo in pozwala sprawdzić, czy interesujący nas indeks należy do tego zakresu. Jeżeli należy, odczytujemy element. W przeciwnym razie wyświetlamy komunikat o braku produktu. Na pustej liście nie ma żadnego poprawnego indeksu.
+
+Przypomnij sobie lekcję o pętlach. Pętla for pozwalała nam przechodzić przez kolejne liczby. Teraz wykorzystamy tę samą konstrukcję do przechodzenia przez produkty. Podczas pierwszego obrotu pętli otrzymamy chleb, podczas drugiego mleko, a podczas trzeciego jabłka. Wystarczy jedno polecenie wyświetlające produkt, aby zobaczyć wszystkie trzy.
+
+Nie zawsze potrzebujesz znać pozycję produktu. Możesz przechodzić bezpośrednio przez wartości. Gdy pozycja jest potrzebna, wykorzystaj zakres indeksów. Jeśli chcesz pokazać użytkownikowi numerowaną listę od jedynki, dodaj jeden do indeksu wyłącznie przy tworzeniu komunikatu. W samym programie indeksy nadal zaczynają się od zera.
+
+Przejdźmy do zmieniania list. Funkcja listOf daje nam listę tylko do odczytu. Pozwala sprawdzać elementy i ich liczbę, ale nie udostępnia metod dodawania ani usuwania produktów.
+
+Do tworzenia listy, której zawartość chcemy zmieniać, służy funkcja mutableListOf. Otrzymujemy wtedy modyfikowalną listę.
+
+W naszej lekcji zaczynamy od chleba i mleka. Metodą add dodajemy jabłka. Następnie zastępujemy element o indeksie jeden, czyli mleko, jogurtem. Po tej zmianie lista zawiera chleb, jogurt i jabłka. Potem metodą remove usuwamy chleb. Pozostają jogurt i jabłka. Na koniec metodą removeAt usuwamy element o indeksie zero. Teraz jest nim jogurt, a na liście pozostają tylko jabłka.
+
+Zauważ, że remove usuwa element na podstawie jego wartości, a removeAt na podstawie pozycji. Po usunięciu chleba jogurt zmienił indeks. Dlatego zawsze trzeba pamiętać, że pozycje mogą się zmieniać.
+
+W tym miejscu warto przypomnieć różnicę między val i var. Czy można zadeklarować modyfikowalną listę za pomocą val? Tak. Val oznacza, że nie możemy przypisać nowej wartości do tej samej nazwy. Ale możemy zmienić zawartość obiektu, jeżeli jego typ na to pozwala. Nadal korzystamy z tej samej listy. Nie zastępujemy jej inną.
+
+Samo var również nie sprawi, że lista tylko do odczytu nagle stanie się modyfikowalna. Są to dwie różne kwestie. Jedna dotyczy przypisania do nazwy, druga dostępnych operacji na zawartości.
+
+Czasami potrzebujemy zacząć od pustej listy. Wtedy przy tworzeniu podajemy typ elementów, na przykład String, ponieważ Kotlin nie ma jeszcze żadnych wartości, z których mógłby go rozpoznać. Funkcja isEmpty sprawdza, czy lista jest pusta. W przykładzie z listą zadań początkowo zwraca true, czyli prawdę. Po dodaniu zadania przeczytania rozdziału i zrobienia ćwiczeń rozmiar listy wynosi dwa, a isEmpty zwraca false.
+
+A jak odnaleźć element? Możemy użyć słowa in albo funkcji contains. Obie pozwalają sprawdzić, czy wartość znajduje się na liście. Jeśli potrzebujemy konkretnej pozycji, używamy funkcji indexOf. Zwraca ona indeks pierwszego pasującego elementu. Jeżeli niczego nie znajdzie, otrzymamy minus jeden.
+
+W przykładzie z imionami mamy Olę, Bartka, Maję i ponownie Olę. IndexOf dla Oli zwraca zero, ponieważ pierwsze wystąpienie znajduje się na początku. Dla Kasi otrzymujemy minus jeden. Pamiętaj również, że wielkość liter ma znaczenie.
+
+Możemy wyszukiwać nie tylko identyczne wartości, ale także wartości spełniające warunek. Mamy listę wyników: cztery, dziewięć, dwa, osiem i sześć. Chcemy znaleźć wyniki wynoszące co najmniej sześć. Pętla sprawdza po kolei każdą liczbę. Warunek spełniają dziewięć, osiem i sześć, więc zwiększamy licznik trzy razy. Ostatecznie otrzymujemy trzy pasujące wyniki.
+
+Użyliśmy tylko pętli, warunku i licznika, które znasz z wcześniejszych lekcji. Nie trzeba od razu uczyć się zaawansowanych sposobów filtrowania.
+
+Listy przydają się też do obliczeń. Jeśli mamy trzy wydatki: dwanaście, osiem i pięć złotych, możemy przejść przez nie pętlą i dodawać kolejne kwoty do sumy. Otrzymamy dwadzieścia pięć złotych. Kotlin ma również gotową funkcję sum, która w tym przypadku obliczy dokładnie ten sam wynik. Warto jednak wiedzieć, co dzieje się podczas samodzielnego sumowania.
+
+Kolejna struktura to tablica. Podobnie jak lista przechowuje elementy w kolejności. Każdy z nich ma indeks. Różnica polega na tym, że rozmiar konkretnej tablicy ustalamy przy jej tworzeniu.
+
+W przykładzie z ocenami używamy funkcji arrayOf. Tworzymy tablicę trzech ocen: trzy, cztery i pięć. Odczytujemy pierwszą ocenę, a potem zastępujemy ją czwórką. Tablica zawiera teraz cztery, cztery i pięć. Nadal ma trzy miejsca. Nie można dopisać czwartej oceny do tej samej tablicy.
+
+Jeżeli zechcesz wyświetlić całą tablicę w konsoli, użyj funkcji contentToString. Bez niej na platformie JVM możesz zobaczyć techniczną informację o obiekcie zamiast czytelnego zestawienia wartości. Kotlin oferuje także tablice przeznaczone dla określonych typów liczbowych, na przykład intArrayOf. W naszej lekcji pokazujemy trzy pomiary: dwanaście, piętnaście i osiemnaście, a następnie wyświetlamy je pętlą.
+
+Jeżeli liczba elementów ma się często zmieniać, wygodniej użyć modyfikowalnej listy. Tablica ma sens, gdy potrzebujemy ustalonej liczby miejsc.
+
+Teraz poznajmy zbiór, po angielsku Set. Jego najważniejszą cechą jest unikalność elementów. Wyobraź sobie rejestr obecności. Ta sama osoba nie powinna zostać policzona dwukrotnie.
+
+Za pomocą funkcji setOf tworzymy zbiór z imion Ola, Bartek, Ola i Maja. Podaliśmy Olę dwa razy, ale zbiór przechowuje tylko jedno takie wystąpienie. Ostatecznie mamy trzy osoby.
+
+Zbiór nie daje nam dostępu do elementów po indeksach tak jak lista. Możemy przez niego przejść pętlą albo sprawdzić, czy dana wartość się w nim znajduje. Nie powinniśmy jednak zakładać, że każdy rodzaj zbioru zachowuje określoną kolejność.
+
+Aby zmieniać zawartość zbioru, używamy mutableSetOf. W przykładzie z Olą i Bartkiem próba ponownego dodania Oli zwraca false. Dodanie Mai zwraca true. Funkcja add informuje nas w ten sposób, czy zbiór rzeczywiście otrzymał nową wartość. Następnie usuwamy Bartka. Pozostają Ola i Maja.
+
+Ostatnią strukturą jest mapa, czyli Map. Nie chodzi tutaj o mapę geograficzną. Jest to sposób powiązania jednej informacji z inną. Każdy wpis składa się z klucza i wartości.
+
+Wyobraź sobie cennik. Chleb kosztuje pięć złotych, mleko cztery złote, a jabłka sześć złotych. Nazwy produktów są kluczami. Ceny są wartościami. Zamiast zapamiętywać, że mleko znajduje się na pozycji numer jeden, możemy odczytać cenę, podając jego nazwę.
+
+Mapę tworzymy funkcją mapOf. Pary klucza i wartości zapisujemy przy pomocy słowa to. W naszym przykładzie klucz mleko jest powiązany z liczbą cztery.
+
+Klucze muszą być unikalne, ale wartości mogą się powtarzać. Dwa różne produkty mogą przecież kosztować tyle samo. Nie można natomiast przechowywać dwóch osobnych wpisów pod identycznym kluczem.
+
+Co się stanie, gdy poprosimy o cenę jogurtu, którego nie ma w cenniku? Odczyt przez nawiasy kwadratowe zwróci null, czyli brak wartości. Dokładniej zajmiemy się tym w następnej lekcji. Dzisiaj wystarczy znać funkcję containsKey, która sprawdza obecność klucza, oraz getOrDefault, która pozwala zwrócić ustaloną wartość zastępczą, gdy klucza nie ma. W przykładzie wybieramy zero, ale nie oznacza to, że nieznany produkt jest darmowy. To tylko umowna wartość zastępcza.
+
+Przez mapę również możemy przechodzić pętlą. Każdy wpis udostępnia klucz przez właściwość key oraz wartość przez właściwość value. W ten sposób wyświetlamy kolejno nazwę i cenę chleba, mleka oraz jabłek.
+
+Jeżeli potrzebujemy aktualizować cennik, tworzymy mapę modyfikowalną za pomocą mutableMapOf. Zaczynamy od chleba za pięć złotych i mleka za cztery. Dodajemy jabłka za sześć i zmieniamy cenę mleka na pięć. Mleko nie zostaje dodane drugi raz. Aktualizujemy wartość istniejącego klucza. Na koniec usuwamy chleb według jego nazwy. Pozostają mleko i jabłka.
+
+Przypomnij sobie teraz funkcje z lekcji szóstej. Funkcja może otrzymać całą listę jako parametr. W przykładzie z wynikami przekazujemy listę liczb i minimalny wynik, którego szukamy. Funkcja liczy wartości większe lub równe minimum. Dla listy cztery, dziewięć, dwa, osiem i sześć, przy minimum sześć zwraca trzy, a przy minimum dziewięć zwraca jeden. Ta sama funkcja działa dla obu przypadków, ponieważ nie zapisaliśmy minimum na stałe w jej wnętrzu.
+
+Czas na mini-projekt tej lekcji. Będzie to domowa lista zakupów. W wersji pisemnej znajdziesz cały program, ale teraz skupmy się na jego działaniu.
+
+Chcemy przechowywać informację, co trzeba kupić i w jakiej ilości. Jednocześnie chcemy wiedzieć, które produkty już kupiliśmy. Do ilości idealnie pasuje mapa. Do oznaczenia kupionych produktów wykorzystamy zbiór, ponieważ każdy produkt powinien zostać oznaczony tylko raz.
+
+Na początku mapa zawiera dwa chleby, jedno opakowanie mleka i cztery jabłka. Zbiór kupionych produktów jest pusty. Oznaczamy chleb jako kupiony. W przykładzie robimy to nawet dwa razy, żeby sprawdzić działanie zbioru. Nadal mamy tylko jeden wpis informujący o kupieniu chleba. Następnie aktualizujemy ilość mleka z jednego opakowania na dwa.
+
+Całą pracę związaną z wyświetlaniem listy powierzamy osobnej funkcji. Dostaje ona mapę planowanych zakupów i zbiór kupionych produktów. Przechodzi przez każdy wpis mapy, odczytuje nazwę i ilość, a następnie sprawdza, czy produkt znajduje się w zbiorze.
+
+Chleb jest oznaczony jako kupiony. Mleko i jabłka nadal mają status do kupienia. Program dodaje więc do licznika dwa opakowania mleka oraz cztery jabłka. Ostatecznie wyświetla informację, że pozostało sześć sztuk.
+
+W tym uproszczonym programie oznaczamy cały produkt jako kupiony. Nie śledzimy jeszcze częściowych zakupów. Nie zapisujemy także danych do pliku. Celem jest połączenie poznanych struktur z funkcją, pętlą i warunkiem.
+
+Pora uporządkować wiedzę. Lista przydaje się, gdy ważna jest kolejność i dopuszczamy powtórzenia. Tablica ma ustaloną liczbę miejsc. Zbiór jest odpowiedni dla unikalnych informacji, a mapa pozwala powiązać klucz z wartością. Wersje modyfikowalne listy, zbioru i mapy pozwalają dodawać, usuwać lub aktualizować dane odpowiednio do możliwości danej struktury.
+
+Na początku łatwo pomylić indeks z liczbą elementów. Pamiętaj, że indeksy zaczynają się od zera. Jeśli nie można dodać elementu do listy, sprawdź, jak została utworzona. Jeśli mapa zwraca null, sprawdź nazwę klucza. Jeżeli zbiór nie zwiększa rozmiaru po dodaniu elementu, być może ten element już istnieje.
+
+Jeszcze jedna praktyczna wskazówka: podczas zwykłej pętli for po liście nie dopisuj ani nie usuwaj z tej samej listy elementów przez add lub remove. Może to wywołać błąd albo dać nieoczekiwany wynik. Na tym etapie najprościej wykonywać takie zmiany przed pętlą lub po niej.
+
+Po wysłuchaniu lekcji wróć do materiału pisemnego. Znajdziesz tam kompletne programy, które możesz uruchomić samodzielnie, oraz ćwiczenia z rozwiązaniami na końcu. Warto zacząć od krótkiej listy i poeksperymentować z indeksami, a później spróbować napisać rejestr gości, który nie dodaje tej samej osoby drugi raz.
+
+Nie musisz pamiętać od razu każdej nazwy metody. Ważniejsze jest zrozumienie, jak przechowywać wiele informacji i dobrać strukturę do zadania. Składnia stanie się naturalniejsza w miarę ćwiczeń.
+
+To koniec lekcji siódmej. W następnym spotkaniu zajmiemy się brakiem wartości, wyjątkami i rozpoznawaniem błędów. Przygotujemy również projekt konsolowy, który podsumuje cały pierwszy poziom kursu. Do usłyszenia.

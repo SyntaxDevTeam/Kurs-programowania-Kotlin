@@ -28,8 +28,9 @@ Kurs w języku polskim dla osoby, która **nigdy wcześniej nie programowała**.
 - [Lekcja 04 — warunki i logika](lekcje/04_WARUNKI_I_LOGIKA.md) — `if`, `else if`, `else`, `when`, `&&`, `||`, `!`, **8 ćwiczeń**, mini-test i projekt systemu rezerwacji.
 - [Lekcja 05 — pętle i zakresy](lekcje/05_PETLE_I_ZAKRESY.md) — `for`, `while`, `do-while`, `until`, `downTo`, `step`, `break`, `continue`, **8 ćwiczeń**, mini-test i projekt dziennika wydatków.
 - [Lekcja 06 — funkcje i podział programu](lekcje/06_FUNKCJE_I_PODZIAL_PROGRAMU.md) — `fun`, parametry, `return`, `Unit`, argumenty domyślne i nazwane, zasięg zmiennych, **8 ćwiczeń**, mini-test oraz projekt kasy biletowej.
+- [Lekcja 07 — kolekcje](lekcje/07_KOLEKCJE.md) — listy, tablice, mapy, zbiory, wyszukiwanie, modyfikowanie, **8 ćwiczeń**, mini-test i domowa lista zakupów. [Wersja lektorska (TXT)](lektor/Lekcja_07_Tekst_dla_lektora.txt).
 
-Pozostałe lekcje będą tworzone **po jednej**, a nie masowo. Każda zostanie udostępniona w osobnym pliku `.md`.
+Pozostałe lekcje będą tworzone **po jednej**, a nie masowo. Każda zostanie udostępniona w osobnym pliku `.md`. Od lekcji 7 repozytorium zawiera również scenariusze dla lektora w katalogu `lektor/`, przygotowane na podstawie odpowiadającej im wersji pisemnej.
 
 ## Jak pracować z lekcją?
 
