@@ -1,0 +1,100 @@
+Kotlin od zera — od pierwszego programu do pluginów Minecraft.
+Lekcja szósta. Funkcje i podział programu w Kotlinie.
+
+Witaj ponownie. Potrafisz już przechowywać wartości, wykonywać obliczenia, podejmować decyzje i powtarzać instrukcje. Dzisiaj zajmiemy się sposobem na uporządkowanie wszystkich tych elementów. Poznasz funkcje.
+
+Wyobraź sobie program, który w kilku miejscach ma wyświetlić takie samo powitanie albo identyczną linię oddzielającą informacje. Możesz wielokrotnie zapisać takie same instrukcje. Ale kiedy zechcesz zmienić treść powitania lub wygląd linii, będziesz musiała poprawić każde wystąpienie. Znacznie wygodniej przygotować to polecenie w jednym miejscu i korzystać z niego tyle razy, ile potrzeba.
+
+Funkcja jest nazwanym fragmentem programu, który wykonuje określone zadanie. Możemy go napisać raz, a następnie uruchamiać w różnych momentach. Tak naprawdę jedną funkcję znasz już od pierwszej lekcji. Nazywa się main. To od niej rozpoczynają działanie nasze programy konsolowe. Teraz nauczymy się tworzyć własne funkcje.
+
+Zacznijmy od prostego powitania. W lekcji tworzymy funkcję o nazwie przywitaj, która ma wyświetlić słowa „Dzień dobry!”. Żeby ją zdefiniować, używamy słowa fun, podajemy nazwę, a następnie zapisujemy okrągłe nawiasy. Wewnątrz nawiasów klamrowych umieszczamy instrukcje, które ta funkcja ma wykonywać.
+
+Nazwa powinna dobrze opisywać zadanie. W tym przypadku „przywitaj” jest czytelniejsze niż przypadkowa litera. Okrągłe nawiasy na razie pozostają puste, bo do wyświetlenia zawsze takiego samego powitania nie potrzebujemy dodatkowych danych.
+
+Samo przygotowanie funkcji nie spowoduje jeszcze wyświetlenia komunikatu. Definicja jedynie określa, co funkcja potrafi zrobić. Aby wykonać jej instrukcje, musimy ją wywołać. W funkcji main zapisujemy nazwę przywitaj i parę okrągłych nawiasów. Wtedy program wejdzie do przygotowanego fragmentu, wyświetli powitanie, a po zakończeniu wróci do miejsca wywołania.
+
+Jeżeli utworzymy inną funkcję, na przykład pokazWiadomosc, ale nigdy jej nie wywołamy, jej komunikat nie zostanie wypisany. Program nie uruchamia sam z siebie wszystkich funkcji, które znajdują się w pliku.
+
+Pomyśl teraz o funkcji narysujLinie z naszej lekcji. Wypisuje ona poziomy separator. Możemy użyć jej przed nagłówkiem listy zadań, pod nagłówkiem i na końcu listy. Trzy wywołania korzystają z jednej definicji. Jeżeli zmienimy długość separatora, wszystkie trzy miejsca będą wyświetlały nową wersję.
+
+Funkcje mogą też wywoływać inne funkcje. W przykładzie pokazSpotkanie program najpierw korzysta z funkcji przywitania, następnie informuje, czego się dzisiaj uczymy, a później korzysta z funkcji pożegnania. Funkcja main wywołuje tylko pokazSpotkanie. Szczegóły pozostają w mniejszych fragmentach. Dzięki temu main można czytać jak krótki plan działania całego programu.
+
+Przejdźmy do parametrów. To informacje, których funkcja potrzebuje, żeby wykonać zadanie. Nasze pierwsze powitanie zawsze wypisywało to samo. Co jednak zrobić, jeśli chcemy przywitać Olę, Bartka i Maję, używając za każdym razem ich imion?
+
+Możemy dodać do funkcji przywitaj parametr o nazwie imie i typie String. Parametry zapisujemy w okrągłych nawiasach definicji. Najpierw podajemy nazwę, później dwukropek i typ. Wewnątrz funkcji korzystamy z tego parametru tak jak z poznanej wcześniej nazwanej wartości. Szablon tekstu umieści imię w powitaniu.
+
+Przy pierwszym wywołaniu przekazujemy tekst „Ola”, przy drugim „Bartek”, a przy trzecim „Maja”. Funkcja za każdym razem wykonuje te same instrukcje, ale korzysta z aktualnie przekazanego imienia. Otrzymamy trzy różne powitania, choć funkcja została napisana tylko raz.
+
+Warto rozróżnić dwa podobne pojęcia. Parametr to nazwa informacji podana w definicji funkcji. Argument to konkretna wartość, którą przekazujemy podczas wywołania. W naszym przykładzie imie jest parametrem, a Ola, Bartek i Maja to argumenty przekazywane w kolejnych wywołaniach.
+
+Parametr może mieć dowolny odpowiedni typ. Jeżeli tworzymy funkcję pokazWiek, może ona oczekiwać liczby całkowitej typu Int. Możemy wtedy przekazać osiemnaście albo dwadzieścia pięć. Nie możemy natomiast bez konwersji przekazać tekstu zawierającego cyfry jeden i osiem, ponieważ funkcja oczekuje liczby, a nie napisu.
+
+Funkcja może potrzebować również kilku informacji jednocześnie. Oddzielamy parametry przecinkami. W lekcji mamy funkcję przedstawOsobe, która potrzebuje imienia oraz wieku. Pierwszy parametr jest typu String, drugi typu Int. Wywołanie z argumentami Ania i dwadzieścia pozwala przygotować komunikat, że Ania ma dwadzieścia lat. W zwykłym wywołaniu kolejność argumentów odpowiada kolejności parametrów w definicji.
+
+Podobnie funkcja pokazProdukt może oczekiwać nazwy produktu, ceny i liczby sztuk. Dla zeszytu kosztującego osiem złotych oraz trzech sztuk przygotuje odpowiednie informacje. Nie trzeba zmieniać wnętrza funkcji, żeby pokazać inny produkt. Wystarczy przekazać inne argumenty.
+
+Czas na bardzo ważne rozróżnienie: wyświetlanie wyniku i zwracanie wyniku.
+
+Wyobraź sobie funkcję pokazSume, która dodaje cztery i sześć, a następnie wyświetla liczbę dziesięć za pomocą println. Użytkownik zobaczy wynik, ale funkcja nie przekaże tej liczby jako własnego wyniku do miejsca wywołania.
+
+Teraz przygotujmy funkcję dodaj. Ona również otrzymuje dwie liczby całkowite i oblicza ich sumę. Tym razem używa słowa return. Oznacza ono zwrócenie wyniku. W definicji funkcji po nawiasach z parametrami dopisujemy dwukropek i typ Int. Informujemy w ten sposób, że funkcja odda liczbę całkowitą.
+
+Kiedy funkcja main wywoła dodaj z argumentami cztery i sześć, otrzyma dziesięć. Możemy zapisać tę wartość pod nazwą wynik. Możemy ją później wyświetlić, wykorzystać w kolejnym działaniu albo przekazać jeszcze innej funkcji. To funkcja main decyduje, co zrobić z otrzymaną informacją.
+
+Zastanów się nad funkcją obliczKoszt. Otrzymuje cenę i liczbę sztuk, a następnie zwraca ich iloczyn. Dla ceny siedmiu złotych i trzech sztuk wynik wyniesie dwadzieścia jeden złotych. Możemy pokazać tę cenę, a potem użyć jej ponownie, dodając pięć złotych za dostawę. Końcowa kwota wyniesie dwadzieścia sześć złotych. Gdyby funkcja tylko wypisywała wynik, nie otrzymalibyśmy w ten sposób wartości gotowej do dalszych obliczeń.
+
+Funkcja nie musi zwracać liczby. Może zwracać tekst. W lekcji funkcja przygotujPowitanie otrzymuje imię, tworzy wiadomość i oddaje ją jako String. Dla imienia Marta wynikiem będzie tekst „Witaj, Marta!”. Nie musi sama go wyświetlać. To wywołujący decyduje, kiedy z niego skorzystać.
+
+Można także zwracać wartość logiczną, czyli Boolean. Funkcja jestPelnoletni sprawdza, czy otrzymany wiek jest większy lub równy osiemnastu. Dla szesnastu zwróci false, a dla dwudziestu jeden true. Ponieważ porównanie samo daje wartość logiczną, możemy bezpośrednio zwrócić jego wynik.
+
+Taki wynik nadaje się do wykorzystania wewnątrz if. W innym przykładzie funkcja moznaWejsc sprawdza, czy uczestnik ma co najmniej szesnaście lat. Dla wieku piętnastu zwróci false. Funkcja main na tej podstawie wybierze komunikat o minimalnym wieku. Rozdzielamy w ten sposób sprawdzanie zasad od wyświetlania wiadomości.
+
+A co z funkcjami, które jedynie wykonują czynność, na przykład wyświetlają potwierdzenie zapisania ustawień? W Kotlinie ich typ wyniku nazywa się Unit. Nie otrzymujemy od nich użytecznej liczby czy napisu, które mielibyśmy przechować i wykorzystać później. Typ Unit można zapisać wprost, ale najczęściej się go pomija. Kotlin rozpoznaje go w takich prostych funkcjach samodzielnie.
+
+Wróćmy jeszcze do return. Oprócz zwracania wartości kończy ono bieżące wywołanie funkcji. Instrukcje, które znajdują się dalej na tej samej drodze wykonania, nie zostaną już wykonane.
+
+Wyobraź sobie funkcję sprawdzWiek, która przygotowuje opis wieku. Jeżeli otrzyma liczbę ujemną, natychmiast zwróci komunikat o błędzie. Dla prawidłowej liczby może przejść dalej i zwrócić inny komunikat. Jeśli pierwsze return zostanie wykonane, drugie nie będzie już potrzebne w tym wywołaniu. Nie oznacza to jednak zakończenia całego programu. Funkcja main może nadal pracować i wywoływać inne funkcje.
+
+W Kotlinie istnieje również krótszy zapis prostych funkcji. Jeżeli funkcja jedynie podwaja liczbę, po deklaracji możemy użyć znaku równości i zapisać wyrażenie, które ma stanowić wynik. Dla pięciu otrzymamy dziesięć. To odpowiednik wersji z klamrami i return. Na początku warto korzystać z pełnego zapisu, jeśli pomaga Ci on lepiej rozumieć działanie programu.
+
+Kolejną wygodną możliwością są wartości domyślne parametrów. Wróćmy do powitania. Najczęściej chcemy używać słowa „Cześć”, ale czasami wolimy bardziej formalne „Dzień dobry”. Funkcja przywitaj może więc przyjmować imię i początek powitania. Dla drugiego parametru ustawiamy wartość domyślną „Cześć”.
+
+Jeśli podczas wywołania przekażemy tylko imię Ola, funkcja użyje domyślnego początku i wyświetli „Cześć, Ola!”. Gdy przekażemy imię Bartek i początek „Dzień dobry”, otrzymamy „Dzień dobry, Bartek!”. Wartość domyślna nie jest niezmiennym ustawieniem całego programu. Jest używana przy konkretnym wywołaniu, w którym nie podano odpowiedniego argumentu.
+
+Funkcja może mieć kilka takich wartości. W przykładowej funkcji ustawień domyślny język to polski, a powiadomienia są włączone. Wywołanie bez argumentów skorzysta z obu wartości domyślnych. Można jednak przekazać język angielski i wartość false, aby otrzymać inny zestaw ustawień.
+
+Przy wielu parametrach łatwo pomylić argumenty, zwłaszcza gdy mają ten sam typ. Kotlin pozwala korzystać z argumentów nazwanych. Podczas wywołania podajemy nazwę parametru, znak równości i wybraną wartość. Dzięki temu od razu wiadomo, do czego dana informacja służy. Możemy także podać wszystkie nazwane argumenty w innej kolejności niż w definicji.
+
+W lekcji pokazujemy to na przykładzie rezerwacji. Funkcja otrzymuje imię, liczbę miejsc i informację o statusie VIP. Dzięki nazwom argumentów możemy najpierw podać dwa miejsca, następnie wartość false dla VIP i dopiero na końcu imię Kasia. Kotlin przyporządkuje każdą wartość do właściwego parametru.
+
+Podobnie funkcja obliczRabat z domyślnym rabatem dziesięć procent, dla ceny dwustu złotych zwróci dwadzieścia złotych. Jeśli nazwanym argumentem ustawimy rabat na dwadzieścia pięć procent, funkcja odda pięćdziesiąt złotych. Zwraca wysokość rabatu, nie cenę po obniżce.
+
+Przejdźmy do zasięgu zmiennych. Zasięg określa miejsce, w którym można korzystać z danej nazwy. Zmienna utworzona wewnątrz funkcji jest lokalna. Nie można odwołać się do niej bezpośrednio z innej funkcji.
+
+W przykładowej funkcji pokazCene zapisujemy cenę piętnaście złotych i wypisujemy ją. Funkcja main może wywołać pokazCene, ale nie widzi lokalnej nazwy cena. Jeżeli potrzebujemy tej wartości poza funkcją, możemy przygotować funkcję, która ją zwróci. W main zapiszemy wynik pod inną nazwą, na przykład doZaplaty.
+
+Parametry również mają swój zasięg. Możemy przechować tekst „Lena” pod nazwą mojeImie w main i przekazać go funkcji pokazImie, która oczekuje parametru imie. Nazwy są różne, ale przekazana wartość jest ta sama. Również dwie osobne funkcje mogą mieć lokalne zmienne o identycznej nazwie cena, przechowujące odpowiednio dziesięć i dwadzieścia pięć. Nie powoduje to konfliktu, ponieważ każda z nich jest używana w swoim własnym zakresie.
+
+Funkcje mogą oczywiście zawierać poznane wcześniej warunki i pętle. W lekcji funkcja pokazOdliczanie otrzymuje liczbę, od której ma zacząć odliczać. Gdy przekażemy trzy, użyje downTo, wypisze trzy, dwa i jeden, a potem komunikat „Start!”.
+
+Inny przykład łączy dwie funkcje. Pierwsza odpowiada na pytanie, czy podana liczba jest parzysta. Korzysta z reszty z dzielenia przez dwa i zwraca wartość logiczną. Druga funkcja wykorzystuje tę odpowiedź, aby wypisać opis liczby. Funkcja main przechodzi przez zakres od jednego do czterech i wywołuje funkcję opisującą dla każdej wartości. Szczegóły zostały oddzielone od głównego planu programu.
+
+Połączmy teraz wszystkie te umiejętności w mini-projekcie, którym jest kasa biletowa.
+
+Według wymyślonych zasad naszej kasy bilet kosztuje szesnaście złotych dla osoby poniżej osiemnastego roku życia oraz dwadzieścia cztery złote dla osoby od osiemnastu lat. Program pyta o wiek kupującej osoby i liczbę biletów. Wszystkie bilety w tym prostym przykładzie są obliczane według ceny wynikającej z tego jednego podanego wieku.
+
+Pierwsza funkcja, pokazNaglowek, wyświetla tytuł programu. Druga, wybierzCene, otrzymuje wiek i zwraca cenę jednego biletu. Trzecia, obliczRazem, mnoży cenę przez liczbę biletów. Używamy tutaj typu Long, aby pomieścić większy wynik mnożenia liczb całkowitych. Czwarta funkcja, pokazRachunek, wyświetla cenę, liczbę biletów i całkowitą kwotę. Domyślnie używa oznaczenia złotych.
+
+Funkcja main koordynuje całą pracę. Wyświetla nagłówek, pobiera dane przez readln, zamienia je na liczby za pomocą toIntOrNull i sprawdza, czy wiek jest nieujemny, a liczba biletów dodatnia. Jeśli dane są nieprawidłowe, pokazuje błąd. Jeśli są poprawne, przekazuje wiek do funkcji wybierającej cenę, a następnie cenę i liczbę biletów do funkcji obliczającej koszt. Na końcu wyświetla rachunek.
+
+W rzeczywistym przykładzie z lekcji użytkownik podaje wiek siedemnaście lat oraz trzy bilety. Cena jednostkowa wyniesie szesnaście złotych, a łączna kwota czterdzieści osiem złotych. Jeżeli zechcemy później zmienić zasady cenowe, wystarczy zmodyfikować funkcję wybierzCene. Pozostałe funkcje nadal będą mogły wykonywać swoje zadania. To praktyczna korzyść z dzielenia programu na mniejsze części.
+
+Jeśli podczas ćwiczeń coś nie działa, sprawdź najpierw, czy zdefiniowana funkcja jest rzeczywiście wywoływana. Następnie przyjrzyj się jej parametrom: czy podajesz odpowiednią liczbę argumentów i właściwe typy? Jeśli potrzebujesz wyniku, upewnij się, że funkcja go zwraca, a nie tylko pokazuje w konsoli. Gdy program nie rozpoznaje nazwy, sprawdź, czy znajduje się ona w odpowiednim zasięgu. Pamiętaj również, by każdy osobny kompletny przykład uruchamiać oddzielnie, bez przypadkowego powielania definicji.
+
+Podsumujmy. Funkcja jest nazwanym fragmentem programu. Definiujemy ją za pomocą fun, a uruchamiamy przez wywołanie. Parametry określają, jakich informacji potrzebuje, a argumenty są konkretnymi przekazywanymi wartościami. Return pozwala oddać wynik i zakończyć bieżące wywołanie. Typ zwracany mówi, jaki rodzaj wyniku otrzymamy. Możemy również korzystać z wartości domyślnych, argumentów nazwanych i lokalnego zasięgu zmiennych.
+
+Wróć teraz do przykładów i ćwiczeń z wersji pisemnej. Spróbuj samodzielnie wydzielić chociaż jedno obliczenie do osobnej funkcji. Nie chodzi o to, by dzielić program na jak najwięcej części, tylko o to, by każda z nich miała czytelne zadanie.
+
+W następnej lekcji poznamy kolekcje. Dowiesz się, jak przechowywać wiele informacji za pomocą list, tablic, map i zbiorów.
+
+Do usłyszenia w lekcji siódmej.

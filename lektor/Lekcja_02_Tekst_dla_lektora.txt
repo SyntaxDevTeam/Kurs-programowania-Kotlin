@@ -1,0 +1,156 @@
+Kotlin od zera — od pierwszego programu do pluginów Minecraft.
+Lekcja druga. Zmienne, typy danych i tekst w Kotlinie.
+
+Witaj ponownie.
+
+W pierwszej lekcji udało Ci się poznać podstawy pracy z Kotlinem. Wiesz już, jak uruchamia się prosty program, jak wyświetlać informacje i jak przechowywać wartość pod wybraną nazwą. Dziś rozbudujemy te umiejętności.
+
+Na koniec tej lekcji będziesz wiedzieć, dlaczego niektóre informacje w programie mogą się zmieniać, a inne nie. Poznasz podstawowe typy danych, dowiesz się, czym różni się liczba od tekstu, i nauczysz się zamieniać jedną postać danych na inną. Wszystko wyjaśnimy na małych, zrozumiałych przykładach.
+
+Zacznijmy od dwóch krótkich słów: val oraz var.
+
+W poprzedniej lekcji poznaliśmy val. To sposób na przypisanie wartości do nazwy, której później nie można po prostu przypisać czegoś innego. Wyobraź sobie, że w programie przechowujesz nazwę serwera. Ustalasz ją na początku i przez cały czas działania programu korzystasz z tej samej wartości. W takiej sytuacji val jest dobrym wyborem.
+
+Ale programy często przechowują też informacje, które zmieniają się podczas pracy. Na przykład liczba graczy na serwerze może wynosić osiem, a po chwili dziewięć. Stan konta może spaść po zakupie. Liczba zdobytych punktów może wzrosnąć po zakończonej rundzie.
+
+Do takich wartości możemy wykorzystać var. Nazwa jest podobna do val, ale różnica ma znaczenie. Val pozwala nadać wartość danej nazwie tylko raz. Var pozwala później przypisać pod tę samą nazwę nową wartość.
+
+Wyobraź sobie zmienną o nazwie onlinePlayers. Na początku przechowuje liczbę osiem. Program pokazuje komunikat: „Przed dołączeniem: osiem graczy”. Następnie pod tą samą nazwą zapisuje dziewięć i pokazuje nową informację. Nie tworzymy drugiej zmiennej. Zmieniamy wartość już istniejącej.
+
+Nie oznacza to, że var jest lepsze od val. Jeśli dana informacja nie musi się zmieniać, warto używać val. Dzięki temu łatwiej przewidzieć zachowanie programu i trudniej przez przypadek nadpisać istotne dane.
+
+Zatrzymajmy się jeszcze na jednym szczególe. Wartość zapisana w val nie może być ponownie przypisana pod tę samą nazwę. Nie jest to jednak obietnica, że absolutnie nic wewnątrz bardziej złożonego obiektu nie będzie się nigdy zmieniać. Takie obiekty poznamy później. Na razie pracujemy z prostymi wartościami i wystarczy nam podstawowa zasada: val, gdy nie potrzebujesz ponownego przypisania; var, gdy wartość ma się zmieniać.
+
+Przejdźmy do typów danych.
+
+Słowo „typ” może brzmieć technicznie, ale kryje się za nim prosta myśl. Program musi wiedzieć, co oznacza dana informacja. Czy jest to tekst? Liczba całkowita? Liczba z częścią ułamkową? Może odpowiedź „tak” albo „nie”?
+
+Kotlin wykorzystuje typy danych właśnie po to, aby rozpoznawać te różnice.
+
+Wyobraź sobie kartę profilu użytkownika. Zapisujemy w niej nick, liczbę zdobytych punktów, informację o aktywnym koncie i pojedynczą literę, która jest skrótem jego rangi. Każda z tych informacji ma inne znaczenie. Nie powinny być traktowane identycznie.
+
+Pierwszym typem, który poznasz, jest String. Służy do przechowywania tekstu. Może to być imię, nazwa miasta, nazwa serwera albo całe zdanie. Nawet jeśli tekst składa się z samych cyfr, nadal może być tekstem. Napis zawierający cyfry jeden i dwa, ujęte w cudzysłowy, nie jest automatycznie liczbą, na której Kotlin będzie wykonywał działania matematyczne.
+
+Drugi typ to Char. Służy do przechowywania pojedynczego znaku, na przykład litery A. Warto rozróżniać go od String. Jedna litera może być zapisana jako tekst, ale można też zapisać ją jako pojedynczy znak. W Kotlinie tekst umieszczamy w podwójnych cudzysłowach, a pojedynczy znak — w apostrofach.
+
+Trzecim typem jest Int. To liczba całkowita, na przykład dziesięć, pięćdziesiąt lub minus trzy. Int przyda się wtedy, kiedy przechowujesz liczbę punktów, poziom użytkownika albo liczbę przedmiotów. Nie potrzebuje części ułamkowej.
+
+Czwarty typ to Long. Także przechowuje liczby całkowite, ale pozwala korzystać ze znacznie większego zakresu wartości niż Int. Może być przydatny na przykład przy bardzo dużych licznikach. Na początku kursu w większości prostych przypadków wystarczy Ci Int. Ważne jednak, aby wiedzieć, że nie jest jedynym typem dla liczb całkowitych. W przykładzie z liczbą trzy miliardy pięćset milionów na końcu literału znajduje się wielka litera L, która oznacza Long. Podkreślenia pomiędzy cyframi pomagają odczytać dużą liczbę, ale nie zmieniają jej wartości.
+
+Piąty typ to Double. Używamy go do liczb, które mogą mieć część ułamkową. Na przykład dwa i pół, trzy i siedemdziesiąt pięć setnych albo zero i pięć. W kodzie Kotlina część ułamkową oddzielamy kropką, nie przecinkiem. To istotne, gdy zaczynasz wpisywać wartości samodzielnie.
+
+Szósty typ to Boolean. Może przechowywać tylko dwie wartości: true i false. Oznaczają one odpowiednio prawdę i fałsz, czyli w praktyce często „tak” i „nie”. Dzięki Boolean program może pamiętać, czy funkcja jest włączona, czy użytkownik ma dostęp albo czy jakiś warunek został spełniony.
+
+Wartości true i false zapisujemy bez cudzysłowów. Gdy umieścisz je w cudzysłowach, staną się zwykłym tekstem. A tekst „true” nie jest tym samym co logiczna wartość true.
+
+Powtórzmy sześć nazw: String — tekst. Char — pojedynczy znak. Int — liczba całkowita. Long — większy zakres liczb całkowitych. Double — liczba z częścią ułamkową. Boolean — prawda albo fałsz.
+
+Nie musisz zapamiętać wszystkich nazw po jednokrotnym wysłuchaniu. Ważne, żebyś rozumiała, dlaczego program ich potrzebuje.
+
+Kiedy wpisujesz w Kotlinie nową wartość, możesz jawnie określić jej typ. To znaczy, że przy nazwie podajesz informację, czy ma to być na przykład String albo Int. Jest to przydatne, jeśli chcesz dokładnie opisać, jakie dane będą przechowywane pod wybraną nazwą.
+
+Ale Kotlin potrafi też sam rozpoznać typ na podstawie przypisanej wartości. Nazywamy to wnioskowaniem typów.
+
+Jeśli przypiszesz pod nazwą level liczbę dziesięć, Kotlin rozpozna ją jako liczbę całkowitą. Jeśli przypiszesz nazwę serwera zapisaną w cudzysłowach, rozpozna tekst. Dzięki temu nie trzeba za każdym razem wypisywać typu wprost.
+
+Wnioskowanie nie oznacza jednak, że typ może później dowolnie się zmieniać. Jeśli utworzysz zmienną przechowującą liczbę całkowitą, nie możesz później po prostu przypisać do niej zdania. Nawet gdy korzystasz z var, typ nadal ma znaczenie.
+
+Wyobraź sobie, że zmienna points przechowuje liczbę piętnaście. Możesz przypisać jej później liczbę dwadzieścia. Nie możesz jednak zamienić jej bezpośrednio na tekst „dwadzieścia punktów”, ponieważ byłaby to wartość innego rodzaju.
+
+To jeden z najważniejszych powodów istnienia typów. Pomagają zapobiegać przypadkowemu mieszaniu rzeczy, które wyglądają podobnie, ale mają inne przeznaczenie.
+
+Zatrzymajmy się przy przykładzie, który często myli początkujących.
+
+Na ekranie mogą pojawić się dwie identycznie wyglądające wartości: piętnaście i piętnaście. Pierwsza jest liczbą całkowitą. Druga to tekst składający się z cyfr. Gdy je wyświetlasz, różnica może nie być widoczna. Zaczyna być ważna dopiero wtedy, gdy chcesz coś z nimi zrobić.
+
+Na liczbie możesz wykonywać obliczenia. Tekst można natomiast łączyć z innymi napisami, przeszukiwać albo wyświetlać. Jeżeli program otrzyma tekstową liczbę, czasami trzeba będzie najpierw zamienić ją na prawdziwą liczbę. Do tego za chwilę wrócimy.
+
+A teraz nazwy zmiennych.
+
+Dobra nazwa opisuje, do czego dana wartość służy. Zamiast nazywać licznik po prostu x, lepiej użyć nazwy onlinePlayers, jeśli przechowuje liczbę graczy. Zamiast name możesz wybrać serverName, jeśli chodzi konkretnie o nazwę serwera.
+
+W Kotlinie często spotkasz sposób zapisu, w którym pierwszy wyraz zaczyna się małą literą, a każdy następny wielką. Na przykład playerLevel albo serverName. Taki zapis pomaga oddzielić wyrazy bez używania spacji.
+
+Pamiętaj, że Kotlin rozróżnia małe i wielkie litery. PlayerLevel nie oznacza tej samej nazwy co playerLevel. Warto wybierać nazwy uważnie i konsekwentnie.
+
+Przejdźmy do pracy z tekstem.
+
+W pierwszej lekcji poznaliśmy szablony tekstu. Dzięki nim można wstawić przechowywaną wartość bezpośrednio do większego komunikatu. Wyobraź sobie, że nick użytkownika zapisaliśmy pod nazwą playerName. Chcemy wyświetlić powitanie zawierające ten nick, a potem informację o liczbie zdobytych punktów.
+
+Zamiast wpisywać nick i punkty ręcznie w każdym komunikacie, odwołujemy się do przechowywanych wartości. Gdy dane się zmienią, nowe wiadomości będą korzystać już z aktualnych informacji.
+
+Najprostszy szablon tekstu składa się ze znaku dolara i nazwy wartości. Jeżeli jednak chcemy umieścić wewnątrz komunikatu bardziej złożone wyrażenie, korzystamy z nawiasów klamrowych. Pozwalają na przykład odczytać długość tekstu albo wykorzystać rezultat prostego działania.
+
+Załóżmy, że nick użytkownika ma cztery litery. Program może policzyć długość zapisanego tekstu i wstawić wynik do zdania. To nie jest żadna specjalna funkcja Minecrafta. Jest to zwykła możliwość języka Kotlin, która później przyda się w wielu aplikacjach.
+
+Tekst ma także swoje przydatne operacje. Właściwość length pozwala odczytać długość napisu. Metoda uppercase zwraca tekst zapisany wielkimi literami, a lowercase małymi. Metoda trim usuwa zbędne białe znaki z początku i końca napisu. W naszym przykładzie pozwala oczyścić nick Alex z otaczających go spacji. Ważne jest to, że uzyskanie zmienionej wersji tekstu nie oznacza nadpisania oryginalnej wartości. Możesz otrzymać nowy napis i pozostawić poprzedni bez zmian. Nawiasy klamrowe przy szablonie pozwalają też wyraźnie oddzielić nazwę wartości od dalszego tekstu, na przykład gdy do nicku dodajesz podkreślenie i dopisek VIP.
+
+Teraz nauczymy się jeszcze jednej przydatnej umiejętności: konwersji typów danych.
+
+Konwersja oznacza zamianę wartości z jednego typu na inny. Potrzebujemy jej wtedy, gdy posiadamy informację w jednej postaci, ale chcemy wykorzystać ją w inny sposób.
+
+Pierwszy przykład: liczba całkowita i liczba ułamkowa.
+
+Wyobraź sobie, że przechowujesz liczbę dwadzieścia pięć jako Int, ale chcesz użyć jej w obliczeniach wymagających Double. W Kotlinie możesz wykonać konwersję metodą toDouble. Wartość nadal oznacza dwadzieścia pięć, lecz jest teraz przechowywana jako liczba w typie obsługującym część ułamkową. Metoda toLong pozwala z kolei uzyskać wartość typu Long.
+
+Drugi przykład działa w przeciwną stronę. W przykładzie pomiar wynosi dziewiętnaście i osiemdziesiąt pięć setnych. Chcemy zamienić go na liczbę całkowitą. Konwersja do Int usunie część ułamkową i da wynik dziewiętnaście.
+
+To bardzo ważne: taka konwersja nie zaokrągla liczby do najbliższej całości. Po prostu odrzuca część ułamkową w przypadku zwykłych wartości mieszczących się w zakresie typu. Nie należy więc traktować jej jak standardowego zaokrąglania.
+
+Trzeci przykład to zamiana tekstu na liczbę.
+
+Załóżmy, że otrzymujesz informację o liczbie graczy w postaci tekstu zawierającego cyfry dwa i cztery. Człowiek bez trudu rozumie, że chodzi o liczbę dwadzieścia cztery. Program musi jednak otrzymać odpowiednią instrukcję, aby traktować ją jako Int.
+
+Kotlin udostępnia do tego metodę toInt. Dzięki niej możemy spróbować zamienić poprawny tekst liczbowy na liczbę całkowitą. Jeśli tekst jest poprawny, wynik nadaje się do dalszych obliczeń.
+
+A co, jeśli zamiast liczby ktoś wpisze zwykłe słowo? Wtedy taka konwersja może zakończyć się błędem podczas działania programu. To nie znaczy, że Kotlin jest wadliwy. Program otrzymał po prostu dane, których nie można zamienić w oczekiwany sposób.
+
+W kolejnej lekcji dowiesz się, jak pobierać dane od użytkownika i bezpiecznie sprawdzać, czy da się z nich utworzyć liczbę. Dziś najważniejsze jest zrozumienie samego pomysłu konwersji.
+
+Czwarty przykład to zamiana liczby na tekst. Przydaje się wtedy, gdy chcesz zapisać liczbę w postaci napisu albo potraktować ją jak fragment komunikatu. Można wykorzystać metodę toString. Jej nazwa oznacza w przybliżeniu „zamień na tekst”. Konwersja tworzy wynik w nowym typie, ale sama nie zmienia oryginalnej zmiennej ani jej typu.
+
+Nie zawsze jednak musisz wykonywać taką konwersję ręcznie. Gdy korzystasz z szablonu tekstu, Kotlin sam potrafi przedstawić liczbę w czytelnej postaci wewnątrz zdania.
+
+Wróćmy na chwilę do val i var. Właśnie teraz zobaczymy, jak dobrze współpracują z typami i szablonami tekstu.
+
+W głównym przykładzie z lekcji przygotowujemy panel informacyjny serwera. Program przechowuje nazwę serwera, maksymalną liczbę miejsc, aktualną liczbę graczy, wiadomość dnia oraz informację o trybie konserwacji.
+
+Nazwa serwera i limit miejsc nie zmieniają się w trakcie tego programu, dlatego zapisujemy je za pomocą val. Aktualną liczbę graczy i wiadomość dnia będziemy zmieniać, dlatego wykorzystamy var. Informacja o konserwacji jest wartością logiczną.
+
+Program najpierw pokazuje stan początkowy. Serwer nazywa się CraftWorld. Jest na nim dwunastu graczy na pięćdziesiąt dostępnych miejsc. Wiadomość brzmi „Witaj na serwerze!”, a tryb konserwacji ma wartość false, czyli jest wyłączony.
+
+Następnie symulujemy aktualizację danych. Nowa liczba graczy, osiemnaście, została przygotowana w postaci napisu. Najpierw zamieniamy ją na liczbę całkowitą metodą toInt, a następnie przypisujemy wynik do istniejącej zmiennej onlinePlayers. Zmieniamy też wiadomość dnia na „Miłej gry!”. Drugi raport pokazuje osiemnastu graczy na pięćdziesiąt miejsc oraz nową wiadomość.
+
+Nie tworzymy nowych zmiennych o tych samych nazwach. Aktualizujemy istniejące wartości, a kolejne komunikaty korzystają z nowych danych. To właśnie jedna z zalet stosowania dobrze nazwanych zmiennych.
+
+W osobnym zadaniu końcowym, które znajdziesz w wersji pisemnej, wykorzystasz podobne zasady do przygotowania własnego profilu serwera przed aktualizacją i po niej. Nie musisz jeszcze wiedzieć, jak pobierać prawdziwe dane z serwera. Dzisiaj pracujemy z wymyślonymi danymi w zwykłym programie konsolowym.
+
+Na koniec porozmawiajmy o błędach, które mogą Ci się przydarzyć podczas ćwiczeń.
+
+Jeśli program informuje, że nie można ponownie przypisać wartości, prawdopodobnie próbujesz zmienić coś utworzonego za pomocą val. Sprawdź, czy dana informacja rzeczywiście powinna być zmienna. Jeśli tak, być może właściwy będzie var.
+
+Jeżeli Kotlin zgłasza niezgodność typów, porównaj rodzaj wartości z typem, którego oczekuje program. Tekst nie jest liczbą, nawet jeśli składa się z cyfr. A pojedynczy znak nie zawsze jest zamiennikiem całego tekstu.
+
+Jeśli błąd dotyczy nazwy, sprawdź pisownię. Kotlin rozróżnia wielkie i małe litery. Jeśli problem wystąpił podczas zamiany tekstu na liczbę, upewnij się, że tekst rzeczywiście zawiera prawidłowo zapisaną liczbę.
+
+Dobrym nawykiem jest czytanie pierwszego komunikatu błędu, poprawianie jednej rzeczy naraz i ponowne uruchamianie programu. Nie trzeba od razu pisać całego rozwiązania od początku.
+
+Jeśli słuchasz teraz audiobooka, możesz spróbować prostego ćwiczenia myślowego.
+
+Wyobraź sobie trzy informacje: nazwę miasta, liczbę mieszkańców i odpowiedź na pytanie, czy miasto jest stolicą. Jakie typy danych pasują do każdej z nich? Nazwa miasta to tekst, więc String. Liczba mieszkańców to liczba całkowita, więc w prostym przykładzie może być Int, choć dla bardzo dużych liczników mamy także Long. Odpowiedź „tak” albo „nie” można zapisać jako Boolean.
+
+A gdyby liczba mieszkańców zmieniała się w kolejnych raportach? Wtedy zamiast val możemy rozważyć var. Nie dlatego, że wartość jest liczbą, ale dlatego, że chcemy ją aktualizować.
+
+O to właśnie chodzi w dzisiejszej lekcji: umieć wybrać rodzaj danych i zdecydować, czy przechowywana informacja ma podlegać zmianom.
+
+Podsumujmy najważniejsze pojęcia.
+
+Val wykorzystujemy wtedy, kiedy nie potrzebujemy ponownie przypisywać wartości pod tę samą nazwę. Var pozwala nam później ją zmienić. String przechowuje tekst, Char pojedynczy znak, Int i Long liczby całkowite, Double liczby z częścią ułamkową, a Boolean wartość prawda albo fałsz.
+
+Kotlin często sam rozpoznaje typ na podstawie przypisanej wartości, ale nie pozwala dowolnie mieszać niezgodnych typów. Szablony tekstu pomagają tworzyć czytelne komunikaty. A konwersje pozwalają zmieniać postać danych wtedy, gdy jest to potrzebne — na przykład z tekstu na liczbę albo z liczby całkowitej na ułamkową.
+
+Masz już kolejne elementy potrzebne do tworzenia własnych programów. Warto teraz wrócić do pisemnej wersji lekcji, uruchomić przykłady i samodzielnie zmienić kilka zapisanych wartości. Samo słuchanie pomaga zrozumieć pojęcia, ale dopiero praktyka utrwala ich zastosowanie.
+
+W następnej lekcji przejdziemy do operatorów matematycznych, porównywania wartości i pobierania danych od użytkownika. Dzięki temu programy zaczną nie tylko pokazywać gotowe informacje, ale także reagować na to, co wpisujesz.
+
+Do usłyszenia w lekcji trzeciej.

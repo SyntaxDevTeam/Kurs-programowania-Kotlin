@@ -1,0 +1,126 @@
+Kotlin od zera — od pierwszego programu do pluginów Minecraft.
+Lekcja pierwsza. Środowisko, pierwszy program i pierwsze dane.
+
+Witaj w pierwszej lekcji kursu programowania w języku Kotlin.
+
+Zaczynamy od samych podstaw. Nie musisz znać żadnego języka programowania ani wiedzieć, jak działają aplikacje od środka. Wystarczy ciekawość i gotowość do wypróbowania czegoś nowego.
+
+W tym kursie stopniowo przejdziemy od niewielkich programów do tworzenia pluginów dla serwerów Minecraft. Najpierw nauczysz się języka Kotlin. Później poznasz podstawy pisania pluginów z wykorzystaniem Spigot, a następnie dodatkowe możliwości Paper. Rodzaje silników i wybór API omówimy w lekcji piętnastej. Pierwszy plugin Spigot przygotujemy w lekcji szesnastej, a do Paper przejdziemy w lekcji dwudziestej piątej. Dziś nie potrzebujesz jeszcze serwera Minecraft. Zajmiemy się zwykłym programem uruchamianym na komputerze.
+
+Zacznijmy od prostego pytania. Czym właściwie jest programowanie?
+
+Programowanie polega na zapisywaniu instrukcji, które komputer ma wykonać. Wyobraź sobie, że chcesz przygotować krótką informację o serwerze gry. Program ma wyświetlić nazwę serwera, liczbę graczy i komunikat powitalny. Człowiek bez trudu rozumie takie polecenie. Komputer potrzebuje jednak dokładnego zapisu: co ma pokazać, w jakiej kolejności i skąd ma wziąć potrzebne informacje.
+
+Instrukcje zapisujemy w języku programowania. W naszym przypadku będzie to Kotlin. Jest on czytelny, pozwala tworzyć zarówno małe programy, jak i duże aplikacje, a z czasem posłuży nam także do przygotowania pluginów Minecraft.
+
+Kiedy uczysz się programować, nie próbujesz zapamiętać całego języka naraz. Ważniejsze jest zrozumienie kilku podstawowych zasad i stopniowe łączenie ich w coraz ciekawsze rozwiązania.
+
+Żeby zacząć, potrzebujemy odpowiednich narzędzi. Poznasz teraz cztery nazwy, które będą regularnie wracać podczas kursu.
+
+Pierwsza to Kotlin, czyli język, w którym napiszesz instrukcje.
+
+Druga to IntelliJ IDEA. To środowisko programistyczne, czyli aplikacja, w której wygodnie pisze się kod, sprawdza błędy i uruchamia programy. Możesz myśleć o niej jak o rozbudowanym edytorze, przygotowanym specjalnie dla programistów. Nie ogranicza się do wyświetlania tekstu. Pomaga rozpoznać, gdzie w kodzie znajduje się problem, i pozwala sprawdzić, co program faktycznie robi.
+
+Trzecia nazwa to JDK. Jest to zestaw narzędzi potrzebnych do tworzenia aplikacji działających na platformie Java. Chociaż uczymy się Kotlina, w tym kursie będziemy korzystać właśnie z tej platformy. Nie oznacza to, że musisz znać język Java.
+
+Czwarta nazwa to JVM, czyli wirtualna maszyna Javy. To środowisko, w którym wykonuje się nasz przygotowany wcześniej program. W dużym uproszczeniu: piszesz kod w Kotlinie, narzędzia przekształcają go do postaci zrozumiałej dla JVM, a następnie program może działać i pokazywać wyniki.
+
+Nie musisz jeszcze zapamiętywać szczegółów. Na dziś wystarczy wiedzieć, że IntelliJ pomaga pisać program, JDK dostarcza narzędzi, a JVM umożliwia jego uruchomienie.
+
+Przejdźmy do przygotowania środowiska.
+
+Pobierz i zainstaluj IntelliJ IDEA z oficjalnej strony JetBrains. Do tego kursu wystarczy bezpłatna wersja środowiska. Po uruchomieniu programu wybierz utworzenie nowego projektu. Jeśli masz już otwarty inny projekt, odpowiednią opcję znajdziesz również w menu programu.
+
+W kreatorze nowego projektu wybierz Kotlin, a następnie projekt przeznaczony do działania na JVM. Nadaj mu prostą nazwę, na przykład KotlinNauka. Jako system budowania wybierz Gradle, a dla jego skryptów język Kotlin DSL, jeśli kreator o to zapyta. Gradle poznamy dokładniej w dalszej części kursu. Na razie wystarczy pamiętać, że pomaga przygotowywać i uruchamiać projekty.
+
+Następnie wybierz JDK. W materiałach kursu proponujemy wersję dwudziestą piątą. Jeśli środowisko nie widzi zainstalowanego JDK, może udostępnić opcję pobrania go bezpośrednio z kreatora. Możesz też wskazać istniejącą instalację na dysku. W pisemnej wersji lekcji znajdziesz zrzuty ekranu kreatora i konfiguracji JDK. Na jednym z nich widoczna jest wersja dwudziesta, ale zgodnie z instrukcją kursu wybierz wersję dwudziestą piątą. Konkretne wymagania Javy będą zależeć od projektu i wersji serwera, których użyjemy później. Nie każdy plugin potrzebuje dokładnie tej samej wersji.
+
+Jeśli widzisz możliwość dodania przykładowego kodu, możesz ją zaznaczyć. Teraz utwórz projekt i pozwól środowisku dokończyć konfigurację. Pierwsze uruchomienie może potrwać trochę dłużej, ponieważ IntelliJ i Gradle przygotowują potrzebne pliki.
+
+W gotowym projekcie znajdź folder o nazwie src, w nim main, a następnie kotlin. Powinien się tam znajdować plik o nazwie Main, z rozszerzeniem kropka k t. To właśnie w tym pliku napiszemy pierwszy program. Jeśli plik nie został utworzony automatycznie, możesz dodać nowy plik Kotlina o nazwie Main.
+
+Zwróć uwagę, że obok kodu możesz widzieć również plik build.gradle.kts. Na tym etapie nie musisz go edytować. To ustawienia projektu, a nie miejsce na dzisiejsze instrukcje.
+
+Przed nami najważniejszy moment: pierwszy samodzielny program.
+
+Chcemy, aby komputer wyświetlił jedno krótkie powitanie. Każdy program konsolowy, który przygotujemy w pierwszych lekcjach, będzie rozpoczynał pracę od funkcji o nazwie main. W Kotlinie funkcję deklarujemy słowem fun. Potem podajemy jej nazwę, czyli main, oraz nawiasy. Instrukcje, które mają zostać wykonane, umieszczamy wewnątrz nawiasów klamrowych.
+
+Nie przejmuj się na razie trudnymi nazwami. Funkcja to po prostu nazwany fragment programu, który wykonuje określone zadanie. Słowo main wskazuje miejsce startu naszego programu konsolowego.
+
+Wewnątrz funkcji umieszczamy instrukcję println. Jej zadaniem jest wypisanie informacji do konsoli. Konsola to okno, w którym widzimy wynik działania programu. Jeżeli poprosimy o pokazanie słów „Cześć, świecie!”, właśnie te słowa powinny pojawić się na ekranie.
+
+Aby uruchomić program w IntelliJ IDEA, odszukaj zielony przycisk uruchamiania znajdujący się przy funkcji main i wybierz opcję Run. Na dole okna powinien pojawić się wynik.
+
+To może wyglądać niepozornie: jeden napis, jeden przycisk, jedna linia wyniku. W rzeczywistości wykonałaś już pełną drogę od kodu źródłowego do działającego programu. To pierwszy ważny krok.
+
+Teraz wyjaśnijmy, dlaczego zapis ma znaczenie.
+
+Kotlin rozpoznaje instrukcje na podstawie określonych słów, nawiasów i znaków. Słowo fun oznacza deklarację funkcji. Nazwa main wskazuje funkcję startową. Okrągłe nawiasy należą do zapisu funkcji, a klamry wyznaczają początek i koniec zawartych w niej instrukcji. Gdy wpisujemy tekst przeznaczony do wyświetlenia, umieszczamy go w cudzysłowach.
+
+Komputer potrzebuje dokładności. Brak cudzysłowu albo nawiasu może spowodować, że program nie da się uruchomić. To normalne, nawet doświadczeni programiści popełniają takie pomyłki.
+
+Spróbujmy teraz pomyśleć o kilku komunikatach naraz.
+
+Załóżmy, że program ma kolejno wyświetlić informację „Start programu”, następnie „Wczytywanie danych”, a na końcu „Gotowe”. Jeśli zapiszemy trzy instrukcje jedna po drugiej, zostaną wykonane w tej samej kolejności. Na razie jest to prosta zasada: program idzie od góry do dołu, o ile nie napiszemy instrukcji zmieniających ten przebieg.
+
+W Kotlinie spotkasz dwa podobnie brzmiące polecenia: print oraz println. Obydwa wypisują dane. Różnica polega na tym, że print pozostawia kolejną informację w tym samym wierszu, natomiast println przechodzi do następnej linii.
+
+Wyobraź sobie, że chcesz wyświetlić napis „Serwer: ”, a tuż za nim jego nazwę. Możesz zrobić to przy użyciu dwóch instrukcji, z których pierwsza nie kończy wiersza. Z kolei po pokazaniu całego komunikatu warto przejść do następnej linii. Niewielka różnica w nazwie funkcji pozwala więc zdecydować o wyglądzie wyniku.
+
+Przejdźmy do kolejnej kwestii: tekstu i liczb.
+
+Jeśli poprosimy program o pokazanie liczby dwanaście, na ekranie zobaczymy dwanaście. Jeśli wpiszemy tę samą wartość jako tekst, również zobaczymy dwanaście. Dla człowieka efekt może być identyczny, ale dla komputera to dwa różne rodzaje danych.
+
+Liczba może później służyć do obliczeń. Tekst jest ciągiem znaków. Napis zawierający cyfry nie staje się przez to automatycznie liczbą. W następnej lekcji dokładniej przyjrzymy się rodzajom danych.
+
+Już teraz zapamiętaj, że tekst zapisujemy w cudzysłowach. Kiedy komputer widzi słowo bez cudzysłowów, może uznać, że chodzi o wcześniej zdefiniowaną nazwę. Jeśli takiej nazwy nie zna, zgłosi błąd.
+
+To prowadzi nas do jednego z najważniejszych pomysłów w programowaniu: przechowywania informacji pod nazwą.
+
+Wyobraź sobie, że przygotowujesz kartę serwera. Nazwa serwera pojawia się w nagłówku, w opisie i w powitaniu. Zamiast za każdym razem wpisywać tę samą nazwę, możesz zapisać ją raz i później odwoływać się do niej w kilku miejscach.
+
+W Kotlinie poznasz dziś słowo val, wymawiane po prostu „wal”. Pozwala ono utworzyć nazwę, której wartość przypisujemy tylko raz. Możesz na przykład zapisać pod nazwą serverName tekst „CraftWorld”, a pod nazwą onlinePlayers liczbę dwanaście. Dalej w programie posługujesz się już tymi nazwami.
+
+Co to daje? Jeśli zmienisz nazwę serwera w miejscu jej przypisania, wszystkie komunikaty korzystające z tej wartości pokażą nową nazwę. Nie musisz szukać każdego wystąpienia ręcznie.
+
+Warto wiedzieć, że wielkie i małe litery w nazwach mają znaczenie. Nazwa serverName to nie to samo co ServerName. Pomyłka w jednej literze wystarczy, by Kotlin nie znalazł odpowiedniej wartości.
+
+Jest jeszcze prosty sposób na umieszczanie przechowywanych informacji wewnątrz tekstu. Nazywamy go szablonem tekstu.
+
+Załóżmy, że chcesz wyświetlić zdanie „Witaj na CraftWorld!”. Nie musisz budować tego komunikatu z wielu osobnych fragmentów. W zwykłym tekście możesz umieścić znak dolara i nazwę wartości. Kotlin odczyta ją i wstawi w odpowiednim miejscu.
+
+To ważna różnica. Jeśli wyświetlisz samą nazwę jako tekst w cudzysłowach, zobaczysz dokładnie tę nazwę. Jeśli odwołasz się do przechowywanej wartości, zobaczysz to, co zostało pod nią zapisane. A jeśli umieścisz odwołanie wewnątrz dłuższego napisu, program stworzy z niego czytelny komunikat.
+
+Przyjrzyjmy się jeszcze komentarzom.
+
+Komentarz to notatka umieszczona w kodzie dla człowieka. Komputer nie wykonuje jej jak zwykłego polecenia programu. Komentarz może wyjaśniać na przykład, dlaczego wybrano określoną nazwę albo do czego służy większy fragment kodu.
+
+W Kotlinie krótki komentarz zaczyna się od dwóch ukośników. Dłuższy komentarz otwieramy ukośnikiem i gwiazdką, a zamykamy gwiazdką i ukośnikiem. Nie musisz znać ich na pamięć, wystarczy, że rozpoznasz je podczas czytania kodu.
+
+Dobry komentarz pomaga zrozumieć powód istnienia instrukcji. Nie ma potrzeby opisywania każdej oczywistej czynności. Kod powinien być możliwie czytelny także bez zbędnych wyjaśnień.
+
+Na koniec połączmy to, czego już się nauczyliśmy.
+
+Wyobraź sobie prosty program wyświetlający kartę serwera Minecraft. Program przechowuje nazwę serwera, tryb gry, aktualną liczbę graczy i maksymalną liczbę miejsc. Następnie pokazuje nagłówek, na przykład „Karta serwera”, a pod nim te informacje w uporządkowanej formie.
+
+Pierwsza linia może podawać nazwę serwera. Druga tryb gry, na przykład Survival. Trzecia liczbę graczy, na przykład dwanaście na pięćdziesiąt dostępnych miejsc. Na końcu pojawia się krótkie powitanie korzystające z tej samej nazwy serwera.
+
+Choć to nadal niewielki program, korzysta już z kilku istotnych umiejętności: zapisuje dane, wyświetla je we właściwej kolejności i wstawia przechowywane wartości do wiadomości. A przede wszystkim nie trzeba w nim powtarzać tych samych informacji w wielu miejscach.
+
+Co zrobić, jeśli taki program nie działa?
+
+Po pierwsze, sprawdź komunikat błędu w środowisku. Jeśli pojawia się informacja, że Kotlin nie rozpoznaje nazwy, szukaj literówki albo sprawdź, czy ta nazwa została wcześniej utworzona. Jeśli brakuje nawiasu lub cudzysłowu, przyjrzyj się linii wskazanej przez IntelliJ i tej bezpośrednio nad nią. Czasami rzeczywista przyczyna znajduje się chwilę wcześniej.
+
+Po drugie, poprawiaj błędy po jednym. Zmiana wielu rzeczy naraz utrudnia ustalenie, co faktycznie pomogło. Po każdej poprawce uruchom program ponownie i zobacz, czy wynik się zmienił.
+
+Po trzecie, pamiętaj, że nie wszystko, co pojawia się w oknie Run, jest wynikiem Twojego programu. Gradle i środowisko mogą wyświetlać także własne informacje, na przykład że budowanie zakończyło się pomyślnie.
+
+Jeżeli słuchasz tej lekcji bez komputera, to dobry moment, aby później wrócić do wersji tekstowej i samodzielnie uruchomić choćby jeden przykład. Nauka programowania wymaga praktyki, a audiobook pomaga zrozumieć sens instrukcji, zanim zobaczysz je na ekranie.
+
+Podsumujmy.
+
+W pierwszej lekcji dowiedziałaś się, czym jest program i jakie role pełnią Kotlin, IntelliJ IDEA, JDK i JVM. Wiesz już, że program konsolowy może zaczynać się od funkcji main, a instrukcje print i println służą do wyświetlania informacji. Rozpoznajesz różnicę między tekstem a liczbą. Poznałaś także val, czyli sposób na nadanie nazwy przechowywanej wartości, oraz szablony tekstu, które pozwalają umieszczać takie informacje w komunikatach.
+
+To solidny początek. W następnej lekcji zajmiemy się rodzajami danych i sprawdzimy, kiedy program może zmieniać zapisane informacje, a kiedy powinny one pozostać niezmienne.
+
+Do usłyszenia w lekcji drugiej.

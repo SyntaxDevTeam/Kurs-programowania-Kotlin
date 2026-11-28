@@ -1,0 +1,94 @@
+Kotlin od zera — od pierwszego programu do pluginów Minecraft.
+Lekcja piąta. Pętle i zakresy. Jak powtarzać instrukcje w Kotlinie.
+
+Witaj ponownie. W poprzedniej lekcji nauczyliśmy się podejmować decyzje za pomocą warunków. Dziś poznamy sposób na wielokrotne wykonywanie tego samego zadania bez konieczności przepisywania instrukcji.
+
+Wyobraź sobie, że chcesz wyświetlić komunikat „Dzień dobry!” pięć razy. Możesz zapisać pięć osobnych instrukcji println. Program zadziała, ale co będzie, jeśli zechcesz wyświetlić tę samą wiadomość sto razy? A co, jeśli liczba powtórzeń będzie zależała od danych podanych przez użytkownika?
+
+Z pomocą przychodzą pętle. Pętla to konstrukcja, która pozwala powtarzać określony fragment programu. Jedno wykonanie tego fragmentu nazywamy obrotem pętli, albo iteracją. Obie nazwy oznaczają tutaj to samo.
+
+W Kotlinie poznamy trzy podstawowe rodzaje pętli. Pierwsza nazywa się for. Druga to while. Trzecia to do-while. Zaczniemy od najprostszego przykładu, w którym z góry wiemy, przez jakie liczby chcemy przejść.
+
+Pętla for pozwala nam kolejno korzystać z wartości należących do określonego zakresu. W przykładzie z powitaniem możemy wybrać liczby od jednego do pięciu. Przy każdej z nich program wypisze „Dzień dobry!” wraz z numerem powtórzenia. Najpierw będzie to numer jeden, później dwa, trzy, cztery i na końcu pięć.
+
+Jak wygląda sam pomysł w kodzie? Po słowie for otwieramy nawias okrągły. W środku wybieramy nazwę, pod którą będzie dostępna aktualna wartość, następnie zapisujemy słowo in, a po nim zakres liczb. Instrukcje wykonywane w każdym obrocie umieszczamy w nawiasach klamrowych.
+
+Zmienna pętli nie musi być deklarowana osobno przy użyciu val ani var. W tym przypadku Kotlin sam udostępnia ją wewnątrz pętli. W każdym kolejnym obrocie odpowiada ona aktualnej wartości z zakresu.
+
+Przyjrzyjmy się kolejności działania. Jeżeli program najpierw wypisuje słowo „Początek”, następnie za pomocą pętli pokazuje numery dni od jednego do trzech, a po pętli wypisuje „Koniec”, otrzymamy jeden komunikat początkowy, trzy komunikaty o dniach i jeden komunikat końcowy.
+
+Polecenia znajdujące się poza klamrami pętli nie powtarzają się przy każdym obrocie. Jest to podobna zasada do tej, którą poznaliśmy w lekcji o warunkach. Klamry określają, które instrukcje należą do danego bloku.
+
+Porozmawiajmy teraz o zakresach. Zakres pozwala wskazać, od jakiej liczby zaczynamy i na jakiej kończymy. W Kotlinie podstawowy zakres liczb całkowitych zapisujemy przy użyciu dwóch kropek.
+
+Jeżeli zapiszemy jeden, dwie kropki, cztery, pętla obejmie liczby jeden, dwa, trzy i cztery. Obie wartości graniczne są włączone do zakresu. To bardzo ważne, kiedy chcemy dokładnie ustalić liczbę powtórzeń.
+
+Istnieje również słowo until. Oznacza, że przechodzimy do wskazanej granicy, ale jej nie uwzględniamy. Od jednego until cztery otrzymamy tylko jeden, dwa i trzy. Nie pojawi się liczba cztery.
+
+Dlaczego taka konstrukcja jest przydatna? W wielu programach liczenie rozpoczyna się od zera. Jeżeli chcemy wykonać trzy obroty, możemy użyć zakresu od zera until trzy. Otrzymamy wartości zero, jeden i dwa. Jeśli użytkownik ma zobaczyć bardziej naturalne numery prób, możemy przy wyświetlaniu dodać jeden do aktualnej wartości. Wtedy komunikaty pokażą próbę pierwszą, drugą i trzecią.
+
+Nie ma tutaj jednego obowiązkowego sposobu liczenia. Wybierasz zakres, który odpowiada zadaniu. Pamiętaj tylko, czy końcowa wartość do niego należy.
+
+A co, jeśli chcemy liczyć w przeciwnym kierunku? Do tego służy downTo. Wyrażenie od pięciu downTo jeden daje kolejno pięć, cztery, trzy, dwa i jeden. W lekcji używamy go do wyświetlenia odliczania, a po ostatniej liczbie program wypisuje słowo „Start!”.
+
+Takie odliczanie nie oznacza jeszcze rzeczywistego odczekiwania jednej sekundy pomiędzy kolejnymi komunikatami. Program wykonuje instrukcje po kolei tak szybko, jak potrafi. Dziś ćwiczymy kolejność liczb, a nie zarządzanie czasem.
+
+Ważny szczegół. Jeżeli zamiast downTo użyjesz zwykłego zakresu od pięciu, przez dwie kropki, do jednego, otrzymasz pusty zakres rosnący. Pętla nie wykona się ani razu. Kotlin nie odwraca automatycznie kierunku liczenia.
+
+Poznajmy jeszcze słowo step. Pozwala ono ustalić wielkość kroku. Domyślnie pętla przechodzi od jednej wartości całkowitej do następnej o jeden. Jeśli chcesz wypisywać co drugą albo co trzecią liczbę, nie musisz ręcznie przygotowywać wszystkich wartości.
+
+Na przykład zakres od zera do dziesięciu z krokiem dwa pozwoli uzyskać zero, dwa, cztery, sześć, osiem i dziesięć. W drugim przykładzie odliczamy od dziesięciu downTo jeden, z krokiem trzy. Otrzymamy dziesięć, siedem, cztery i jeden.
+
+Step określa wielkość kroku, a nie kierunek. Kierunek malejący nadal wyznacza downTo. Wielkość kroku musi być dodatnia. Ustawienie zera jest błędem, ponieważ taki krok nie pozwalałby przechodzić do kolejnych wartości.
+
+Pętle mogą robić o wiele więcej niż wyświetlać komunikaty. Mogą również stopniowo obliczać wynik. Załóżmy, że chcemy dodać wszystkie liczby od jednego do czterech. Przed pętlą tworzymy zmienną sum przechowującą zero. Używamy var, ponieważ będziemy ją aktualizować.
+
+W pierwszym obrocie dodajemy jeden. Suma wynosi jeden. W drugim dodajemy dwa i otrzymujemy trzy. Następnie dodajemy trzy, więc suma wynosi sześć. Po dodaniu czterech otrzymujemy końcowy wynik dziesięć.
+
+Zmienna przechowująca sumę musi być utworzona przed pętlą. Gdybyśmy podczas każdego obrotu tworzyli nową sumę zaczynającą się od zera, tracilibyśmy wcześniej zebrany wynik.
+
+Inne proste zastosowanie to tabliczka mnożenia. Jeśli chcemy pomnożyć cztery kolejno przez liczby od jednego do pięciu, wystarczy jedna pętla. Program sam obliczy kolejno cztery, osiem, dwanaście, szesnaście i dwadzieścia.
+
+Przejdźmy do drugiego rodzaju pętli, czyli while. W przeciwieństwie do for nie potrzebujemy tutaj gotowego zakresu. Podajemy warunek, który musi być prawdziwy, aby można było wykonać kolejny obrót.
+
+Wyobraź sobie licznik rozpoczynający się od jednego. Chcemy wyświetlać jego wartość tak długo, jak długo jest mniejsza lub równa cztery. Po każdym wyświetleniu zwiększamy licznik o jeden. Kotlin przed każdym obrotem sprawdza warunek. Gdy licznik osiągnie pięć, warunek będzie fałszywy. Pętla zakończy się, a program przejdzie do następnej instrukcji.
+
+Pamiętaj, że while sprawdza warunek jeszcze przed pierwszym wykonaniem bloku. Jeżeli licznik od razu wynosi osiem, a my oczekujemy wartości mniejszej od pięciu, pętla w ogóle się nie rozpocznie.
+
+Najczęstszą pomyłką jest zapomnienie o aktualizacji danych używanych w warunku. Jeśli licznik stale wynosi jeden, a pętla działa tak długo, jak długo licznik jest mniejszy od pięciu, warunek pozostanie prawdziwy bez końca. To przykład nieskończonej pętli. Gdy podczas ćwiczeń program przestaje kończyć działanie, użyj przycisku zatrzymania w IntelliJ lub edytorze, a następnie sprawdź, czy warunek ma możliwość stać się fałszywy.
+
+Trzeci rodzaj pętli to do-while. W tym przypadku kolejność jest odwrotna. Najpierw wykonujemy instrukcje, a dopiero potem sprawdzamy warunek. Oznacza to, że blok wykona się przynajmniej jeden raz, nawet jeśli warunek od początku jest fałszywy.
+
+Przypomnij sobie licznik o wartości osiem oraz warunek, że licznik powinien być mniejszy od pięciu. Zwykła pętla while nie wykonałaby żadnej instrukcji. W do-while najpierw pojawi się komunikat, a dopiero później Kotlin sprawdzi warunek i zakończy powtarzanie. Wybór zależy od tego, czy pierwsze wykonanie ma być obowiązkowe.
+
+Przyjrzyjmy się teraz dwóm słowom, które pozwalają zmienić przebieg pętli. Pierwsze to break. Oznacza wcześniejsze zakończenie pętli.
+
+Załóżmy, że program sprawdza liczby od jednego do dziesięciu, ale chce przerwać działanie pętli, kiedy dotrze do czterech. W oryginalnym przykładzie wyświetli informacje o sprawdzaniu jedynki, dwójki i trójki. Przy czwórce poinformuje, że się zatrzymuje, i wykona break. Żadna kolejna liczba nie zostanie już sprawdzona. Po zakończeniu pętli program nadal może wykonywać instrukcje znajdujące się za nią.
+
+Drugie słowo to continue. Nie kończy całej pętli. Pomija pozostałe instrukcje aktualnego obrotu i pozwala przejść dalej.
+
+Wyobraź sobie zakres od jednego do sześciu. Tym razem chcemy wypisać wszystkie liczby oprócz trzech. Kiedy aktualna wartość jest równa trzy, wykonujemy continue. Program nie wyświetla trójki, ale nadal przechodzi do czterech, pięciu i sześciu.
+
+Podobnie możemy użyć reszty z dzielenia, aby pomijać liczby nieparzyste. Dla zakresu od jednego do ośmiu program pokaże tylko dwa, cztery, sześć i osiem. Jeżeli korzystasz z continue w pętli while, sprawdź, czy nie pomijasz przez przypadek instrukcji aktualizującej licznik.
+
+Zastosujmy teraz pętlę do danych podawanych przez użytkownika. W lekcji przygotowujemy program, który daje maksymalnie trzy próby wpisania liczby siedem. Każda odpowiedź jest odczytywana przez readln i konwertowana za pomocą toIntOrNull. Jeżeli użytkownik wpisze siedem, program wyświetli potwierdzenie, zapisze prawdziwą wartość logiczną w zmiennej correct i użyje break. Jeśli wszystkie trzy próby zakończą się niepowodzeniem, wyświetli informację o wykorzystaniu prób. Dzięki ograniczeniu liczby powtórzeń zadanie ma jasno określony koniec.
+
+Jeżeli korzystasz z edytora kursu bez obsługi wejścia użytkownika, uruchom ten przykład w IntelliJ IDEA. Pozostałe przykłady pętli nie wymagają wpisywania odpowiedzi.
+
+Czas na mini-projekt z lekcji piątej: dziennik wydatków z pięciu dni.
+
+Program przechowuje dwie zmienne. Pierwsza zbiera sumę wydatków, druga liczy dni, dla których podano prawidłową kwotę. Obie zaczynają się od zera. Następnie pętla for przechodzi przez maksymalnie pięć dni.
+
+Każdego dnia program pyta o kwotę w całych złotych lub o słowo „koniec”. Jeżeli użytkownik wpisze dokładnie słowo „koniec”, break przerywa zbieranie danych. Jeżeli poda coś innego, program próbuje zamienić wpisany tekst na liczbę całkowitą. Błędna lub ujemna wartość zostanie pominięta za pomocą continue. Poprawna, nieujemna kwota zostanie dodana do sumy, a licznik prawidłowo zapisanych dni zwiększy się o jeden. Zero jest tutaj poprawną kwotą.
+
+Sprawdźmy rzeczywisty przebieg z lekcji. Pierwszego dnia użytkownik podaje dziesięć złotych. Drugiego dnia wpisuje niepoprawny tekst. Program pomija ten dzień. Trzeciego dnia podaje pięć złotych. Czwartego dnia wpisuje słowo „koniec”. Pętla zatrzymuje się i wyświetla podsumowanie. Poprawnie zapisano dwa dni, a suma wydatków wyniosła piętnaście złotych.
+
+To uproszczony dziennik, bez groszy i bez trwałego zapisywania danych. Prawdziwa aplikacja finansowa musiałaby też właściwie przechowywać kwoty i kontrolować ich zakres. Tutaj zależy nam przede wszystkim na zrozumieniu współpracy pętli, zmiennych i warunków.
+
+Podczas samodzielnego ćwiczenia sprawdzaj, czy zakres uwzględnia właściwą liczbę powtórzeń, czy licznik naprawdę się zmienia oraz czy break i continue znajdują się we właściwych miejscach. Warto prześledzić pierwsze dwa obroty pętli, zanim uruchomisz cały program. Dzięki temu często samodzielnie zauważysz problem.
+
+Podsumujmy. For pozwala przechodzić przez kolejne wartości. Dwie kropki tworzą zakres z obiema granicami, until pomija granicę końcową, downTo zmienia kierunek, a step określa wielkość kroku. While sprawdza warunek przed wykonaniem bloku, do-while robi to po wykonaniu. Break kończy pętlę, a continue pomija bieżący obrót. Możemy używać tych konstrukcji zarówno do wypisywania danych, jak i do obliczeń oraz zbierania odpowiedzi.
+
+W następnej lekcji dowiesz się, jak dzielić program na mniejsze, nazwane części. Poznamy funkcje, parametry i zwracanie wyników.
+
+Do usłyszenia w lekcji szóstej.

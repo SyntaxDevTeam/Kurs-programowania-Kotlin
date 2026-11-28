@@ -1,0 +1,88 @@
+Kotlin od zera — od pierwszego programu do pluginów Minecraft.
+Lekcja trzecia. Operatory i wprowadzanie danych przez użytkownika.
+
+Witaj ponownie. Wiesz już, jak zapisywać informacje pod nazwami i rozpoznawać podstawowe typy danych. Potrafisz też wyświetlać przygotowane komunikaty. Dzisiaj nauczysz się czegoś, dzięki czemu program zacznie wykonywać obliczenia, porównywać wartości i korzystać z informacji podanych przez użytkownika.
+
+Zacznijmy od pojęcia operatora. Operator to znak, który informuje Kotlin, jaką operację należy wykonać na podanych wartościach. Wiele z tych znaków znasz już z matematyki. Pozostałe są równie proste, gdy dowiesz się, co oznaczają.
+
+Dodawanie zapisujemy plusem, odejmowanie minusem, a mnożenie gwiazdką. Do dzielenia używamy ukośnika. Mamy również znak procentu, który w Kotlinie oznacza resztę z dzielenia. Nie służy bezpośrednio do obliczania procentów.
+
+Wyobraź sobie dwie liczby zapisane w programie: osiem i trzy. Ich suma wynosi jedenaście, różnica pięć, a iloczyn dwadzieścia cztery. Kiedy podzielimy osiem przez trzy jako dwie liczby całkowite, otrzymamy dwa. Pozostaną jeszcze dwie jednostki. Właśnie tę pozostałość zwraca operator reszty z dzielenia.
+
+Do czego może się przydać taki operator? Załóżmy, że masz dwadzieścia pięć przedmiotów i chcesz rozłożyć je na grupy po osiem sztuk. Dzielenie całkowite pozwoli ustalić, że powstaną trzy pełne grupy. Reszta z dzielenia pokaże, że pozostanie jeszcze jeden przedmiot. Nie trzeba liczyć osobno każdej grupy. Wystarczą dwa działania.
+
+Zatrzymajmy się na chwilę przy dzieleniu, ponieważ łatwo tutaj o pomyłkę. W poprzedniej lekcji poznaliśmy typ Int, który przechowuje liczby całkowite, oraz Double, który pozwala pracować z liczbami zawierającymi część ułamkową. Różnica między nimi ma znaczenie również podczas wykonywania działań.
+
+Jeżeli podzielimy siedem przez dwa, a obie liczby mają typ Int, wynik będzie równy trzy. Część ułamkowa zostaje odrzucona. Nie jest to zaokrąglenie do najbliższej liczby. Kotlin wykonuje w tym przypadku dzielenie całkowite.
+
+Jeżeli natomiast co najmniej jedna z tych dwóch wartości będzie typu Double, możemy otrzymać trzy i pół. W kodzie liczbę dwa typu Double można zapisać jako dwa, kropka, zero. Można również wcześniej wykorzystać poznaną metodę toDouble, aby przekształcić liczbę całkowitą.
+
+Ważne jest słowo „wcześniej”. Jeżeli najpierw wykonasz dzielenie całkowite, a dopiero później zamienisz wynik na Double, utracona część ułamkowa nie wróci. W przykładzie z siedmioma graczami podzielonymi na dwie grupy prawidłową średnią trzy i pół uzyskamy wtedy, gdy konwersja nastąpi przed dzieleniem.
+
+Nie wolno też bez sprawdzenia dzielić liczby całkowitej przez zero. Taka operacja może przerwać działanie programu. Później nauczymy się coraz wygodniej zabezpieczać przed podobnymi sytuacjami.
+
+Kolejna sprawa to kolejność wykonywania działań. Kotlin przestrzega znanych zasad matematycznych. Mnożenie, dzielenie i reszta z dzielenia mają pierwszeństwo przed dodawaniem i odejmowaniem. Jeżeli dodamy dwa do iloczynu trzech i czterech, wynik będzie równy czternaście. Jeżeli jednak najpierw chcemy dodać dwa i trzy, a później pomnożyć wynik przez cztery, musimy użyć nawiasów. Otrzymamy wtedy dwadzieścia.
+
+Nawiasy pomagają nie tylko komputerowi. Dzięki nim również osoba czytająca kod łatwiej rozumie, co miało zostać policzone. Na przykład koszt czterech diamentów po piętnaście monet, powiększony o pięć monet opłaty za dostawę, wyniesie sześćdziesiąt pięć monet. Najpierw obliczamy cenę przedmiotów, później dodajemy opłatę.
+
+Przejdźmy do zmiennych, których wartości można aktualizować. Pamiętasz słowo var? Wykorzystamy je teraz razem z operatorami.
+
+Załóżmy, że program przechowuje informację o dziesięciu graczach. Do serwera dołącza jedna osoba. Możemy przypisać zmiennej jej dotychczasową wartość powiększoną o jeden. Nie trzeba znać początkowej liczby na pamięć. Program bierze to, co aktualnie przechowuje, i sam oblicza nową wartość.
+
+Kotlin pozwala skrócić taki zapis. Plus połączony ze znakiem równości oznacza dodanie podanej wartości do aktualnej wartości zmiennej. Minus połączony ze znakiem równości oznacza jej zmniejszenie. Jeżeli do jedenastu graczy dołączą dwie osoby, będzie ich trzynaście. Gdy jedna wyjdzie, pozostanie dwanaście.
+
+Istnieją również skróty składające się z dwóch plusów oraz dwóch minusów. Pierwszy zwiększa licznik o jeden, drugi zmniejsza go o jeden. W przykładzie z trzema życiami gracza po porażce pozostaną dwa życia, a po zdobyciu dodatkowego życia znów będą trzy. Na razie korzystamy z tych skrótów jako osobnych instrukcji. Tak najłatwiej zrozumieć ich działanie.
+
+Do tej pory operatory pozwalały nam przede wszystkim uzyskiwać liczby. Teraz poznamy operatory porównania. Ich wynik nie jest liczbą, ale wartością typu Boolean, czyli true albo false.
+
+Możemy zapytać, czy jedna liczba jest większa od drugiej, mniejsza od niej, większa lub równa, mniejsza lub równa, równa albo różna. Każde takie pytanie kończy się odpowiedzią prawda lub fałsz.
+
+Jeżeli na serwerze znajduje się piętnastu graczy, a limit wynosi dwadzieścia, pytanie, czy liczba graczy jest mniejsza od limitu, da odpowiedź true. Pytanie, czy limit został już osiągnięty, da false. Pytanie, czy jest dokładnie piętnastu graczy, znów da true.
+
+Zapamiętaj szczególnie różnicę między jednym a dwoma znakami równości. Pojedynczy znak równości służy do przypisania wartości. Dwa znaki równości sprawdzają, czy wartości są równe. Wykrzyknik połączony ze znakiem równości sprawdza natomiast, czy wartości są różne.
+
+Można porównywać również tekst. Jeżeli nick gracza to Alex, rozpoczynający się wielką literą, porównanie go z identycznym napisem da true. Porównanie z nazwą zapisaną wyłącznie małymi literami da false. Kotlin rozróżnia wielkość liter. Porównanie tekstów nie jest zatem tym samym co ocena, czy dwie nazwy wyglądają podobnie dla człowieka.
+
+Pora na pierwszą rozmowę z programem.
+
+Dotychczas najczęściej ustalaliśmy wszystkie dane już podczas pisania kodu. Teraz pozwolimy użytkownikowi podać własne informacje. W Kotlinie służy do tego między innymi funkcja readln. Jej zadaniem jest odczytanie jednego wiersza tekstu ze standardowego wejścia programu.
+
+Wyobraź sobie program, który wypisuje prośbę o podanie nicku. Następnie czeka, aż użytkownik wpisze swoją odpowiedź i zatwierdzi ją klawiszem Enter. Odczytany tekst przechowujemy pod wybraną nazwą. Później wykorzystujemy szablon tekstu, aby wyświetlić powitanie zawierające wpisany nick.
+
+Nie musimy z góry wiedzieć, kto uruchomi program. To właśnie użytkownik dostarcza danych podczas jego działania.
+
+Jeżeli ćwiczysz w IntelliJ IDEA, odpowiedź wpisujesz w panelu Run. W przypadku edytora na stronie kursu potrzebna jest obsługa wejścia programu. Gdy edytor nie pozwala przekazywać tekstu, wybierz IntelliJ IDEA. To nie jest wtedy błąd składni Kotlina, tylko ograniczenie sposobu uruchamiania programu.
+
+Jest jednak ważny szczegół. Funkcja readln zwraca tekst, nawet jeśli ktoś wpisał wyłącznie cyfry. Jeżeli użytkownik poda liczbę dwanaście, program otrzyma napis złożony z cyfr jeden i dwa. Aby wykonać działania matematyczne, trzeba przekształcić ten napis w liczbę.
+
+Poznaliśmy już metodę toInt. Dzięki niej poprawnie zapisaną liczbę całkowitą można otrzymać z tekstu. Załóżmy, że program pyta o liczbę diamentów, a następnie chce dodać do niej pięć. Po konwersji wpisanej wartości dwanaście otrzymamy siedemnaście.
+
+Problem pojawi się wtedy, gdy ktoś wpisze zwykłe słowo zamiast liczby. Metoda toInt może zgłosić błąd podczas działania programu. Nie chcemy, aby pomyłka użytkownika powodowała jego nieoczekiwane zakończenie.
+
+Dlatego wprowadzimy bezpieczniejszą metodę o nazwie toIntOrNull. Jeżeli tekst zawiera prawidłową liczbę całkowitą mieszczącą się w zakresie typu Int, otrzymamy tę liczbę. W przeciwnym razie otrzymamy null. Na dziś null możesz rozumieć jako brak oczekiwanej wartości. Dokładniej zajmiemy się nim w lekcji ósmej.
+
+Co zrobić z taką informacją? Wprowadzimy na chwilę instrukcję if, którą szczegółowo poznasz w następnej lekcji. Program najpierw sprawdzi, czy uzyskana wartość jest równa null. Jeżeli tak, wyświetli komunikat z prośbą o podanie liczby całkowitej. W przeciwnym razie może wykonać zaplanowane obliczenie. Druga część takiego wyboru nosi nazwę else.
+
+Nie musisz teraz zapamiętywać pełnego zapisu warunków. Najważniejsza jest zasada: najpierw sprawdź dane, potem z nich korzystaj.
+
+Podobna metoda istnieje dla liczb ułamkowych. Nazywa się toDoubleOrNull. W przykładzie z długością skoku można podać trzy i pół bloku, wpisując trzy, kropkę i pięć. Zapis z przecinkiem nie zostanie bezpośrednio rozpoznany jako taka liczba przez tę metodę. W prawdziwych aplikacjach trzeba też zwracać uwagę na specjalne wartości, takie jak NaN i Infinity, oraz sprawdzać zakres i skończoność liczby. Dzisiaj skupiamy się przede wszystkim na samej konwersji.
+
+Prawidłowy format nie oznacza jeszcze, że informacja jest sensowna. Wyobraź sobie, że program pyta o liczbę kupowanych przedmiotów. Minus pięć jest poprawną liczbą całkowitą, ale nie jest prawidłową liczbą sztuk w takim zamówieniu. Podobnie zero nie spełnia naszych założeń. W tym przypadku musimy sprawdzić zarówno wynik konwersji, jak i to, czy liczba jest większa od zera.
+
+Połączmy teraz poznane umiejętności w mini-projekcie z lekcji: kalkulatorze sklepu serwerowego.
+
+W naszym przykładzie każdy diament kosztuje dwanaście monet. Cena zostaje zapisana raz. Program wyświetla ją, pyta o liczbę diamentów, odczytuje odpowiedź i próbuje zamienić ją na liczbę całkowitą.
+
+Jeżeli użytkownik wpisze słowo zamiast liczby, zobaczy komunikat o nieprawidłowym formacie. Jeżeli wpisze zero lub liczbę ujemną, program wyjaśni, że liczba sztuk musi być dodatnia. Dopiero po tych sprawdzeniach następuje mnożenie ceny przez liczbę przedmiotów.
+
+Przy zakupie czterech diamentów otrzymamy rachunek na czterdzieści osiem monet. Po zmianie ceny w programie na dwadzieścia monet zakup trzech sztuk będzie kosztował sześćdziesiąt monet. To kolejny przykład zalety przechowywania danych pod nazwami. Zmieniasz jedną wartość, a obliczenia nadal działają według tej samej zasady.
+
+To nie jest jeszcze pełny system sklepu. Nie sprawdzamy tutaj rzeczywistego salda, nie zapisujemy transakcji i nie zabezpieczamy wszystkich możliwych bardzo dużych wartości. W zadaniu końcowym będziesz mogła rozbudować ten pomysł o porównanie kosztu zakupu z dostępnym budżetem. Dziś ćwiczymy podstawowe operatory i wprowadzanie danych.
+
+Jeśli podczas pracy pojawi się nieoczekiwany wynik, sprawdź typy użytych liczb, kolejność działań i zapis operatorów. Jeżeli zamiast dodawania otrzymujesz połączony tekst, upewnij się, że dane z konsoli zostały zamienione na liczby. Jeżeli konwersja się nie udała, sprawdź, co dokładnie zostało wpisane. Czytanie komunikatów błędów i poprawianie jednej rzeczy naraz pozwala stopniowo odnaleźć przyczynę.
+
+Podsumujmy. Znasz pięć podstawowych operatorów matematycznych, wiesz, czym jest dzielenie całkowite, i potrafisz zmieniać kolejność działań nawiasami. Umiesz aktualizować zmienne, porównywać wartości oraz odróżniać przypisanie od sprawdzenia równości. Wiesz, jak pobrać tekst przez readln i jak bezpiecznie zamienić go na liczbę za pomocą toIntOrNull albo toDoubleOrNull.
+
+Wróć do wersji pisemnej lekcji, uruchom przykłady i sprawdź nie tylko poprawne, lecz również błędne odpowiedzi. W następnej lekcji dokładnie poznamy warunki if, else i when oraz sposoby łączenia kilku pytań w jedną decyzję.
+
+Do usłyszenia w lekcji czwartej.

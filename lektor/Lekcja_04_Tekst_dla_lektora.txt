@@ -1,0 +1,92 @@
+Kotlin od zera — od pierwszego programu do pluginów Minecraft.
+Lekcja czwarta. Warunki i logika w Kotlinie.
+
+Witaj w kolejnej lekcji. Wcześniej poznaliśmy wartości logiczne, porównywanie liczb i wprowadzanie danych. Dzisiaj wykorzystamy te umiejętności, aby nasze programy mogły wybierać, co zrobić w określonej sytuacji.
+
+Wyobraź sobie program pomagający zdecydować, czy należy zabrać parasol. Nie chcemy, aby za każdym razem wyświetlał tę samą poradę. Powinien sprawdzić, jaka jest pogoda, a dopiero potem wybrać odpowiedni komunikat. Podobnie program obsługujący rezerwację miejsc musi ustalić, czy są jeszcze wolne miejsca. Nie może obiecać miejsca każdej osobie niezależnie od sytuacji.
+
+Takie decyzje podejmujemy w programowaniu przy pomocy instrukcji warunkowych. Warunek to pytanie, na które program potrafi odpowiedzieć wartością true albo false. True oznacza prawdę, false fałsz. Te dwie wartości poznaliśmy w lekcji drugiej jako typ Boolean.
+
+Załóżmy, że ktoś ma siedemnaście lat. Pytanie, czy jego wiek jest większy lub równy osiemnastu, daje odpowiedź false. Pytanie, czy wiek jest mniejszy od osiemnastu, daje true. Tak samo sprawdzenie, czy wynosi dokładnie siedemnaście, da true.
+
+Samo porównanie to jeszcze nie decyzja. Teraz chcemy wykorzystać odpowiedź, aby wykonać określone polecenie.
+
+Pierwszą instrukcją, którą poznasz, jest if. To angielskie słowo oznaczające „jeżeli”. Po słowie if zapisujemy warunek w nawiasach okrągłych, a instrukcje, które mają zostać wykonane, umieszczamy w nawiasach klamrowych.
+
+Pomyśl o przykładzie z temperaturą. Program przechowuje wartość minus trzy stopnie. Sprawdza, czy temperatura jest mniejsza od zera. Ponieważ tak właśnie jest, wyświetla ostrzeżenie o mrozie. Następnie przechodzi dalej i informuje, że sprawdzanie pogody zostało zakończone.
+
+A gdyby temperatura wynosiła pięć stopni? Warunek byłby fałszywy, więc ostrzeżenie o mrozie zostałoby pominięte. Jednak komunikat o zakończeniu sprawdzania nadal by się pojawił. Znajduje się poza blokiem if, dlatego nie zależy od jego wyniku.
+
+Właśnie po to potrzebne są klamry. Wyznaczają granice fragmentu, którego wykonanie zależy od warunku.
+
+Warunek nie musi być rozbudowanym porównaniem. Jeśli przechowujemy informację o włączonych powiadomieniach w zmiennej typu Boolean, wystarczy użyć tej wartości jako warunku. Gdy wynosi true, program wykona instrukcje. Gdy wynosi false, pominie je. Nie trzeba dodatkowo porównywać jej ze słowem true.
+
+Przejdźmy do instrukcji else. Oznacza ona „w przeciwnym razie”. Pozwala określić, co zrobić, gdy warunek sprawdzany przez if jest fałszywy.
+
+Wyobraź sobie przykładowy formularz zapisów. Ustaliliśmy w nim prostą zasadę: osoba, która ma co najmniej osiemnaście lat, może zapisać się samodzielnie. W przeciwnym razie potrzebuje zgody opiekuna. Dla wieku szesnastu lat pierwszy warunek nie będzie spełniony, więc program wybierze drugą odpowiedź. Dla wieku osiemnastu lat wybierze pierwszą.
+
+Zwróć uwagę, że w takim układzie program nie wyświetla obu komunikatów. Wykonuje jedną z dwóch dróg. Nie może przecież jednocześnie informować, że zgoda jest potrzebna i że nie jest potrzebna.
+
+Czasami jednak chcemy sprawdzić kilka niezależnych warunków. Załóżmy, że ktoś ma dziesięć punktów. Jeżeli najpierw osobno sprawdzimy, czy ma co najmniej dziesięć punktów, a potem osobno, czy ma co najmniej pięć, oba warunki będą prawdziwe. Dwie niezależne instrukcje if mogą zatem wyświetlić dwa komunikaty. To prawidłowe zachowanie, jeśli właśnie tego potrzebujemy. Wybór między osobnymi instrukcjami a połączonym if i else zależy od zadania.
+
+A co, gdy istnieją więcej niż dwie możliwości? Przyda się konstrukcja else if, czyli „w przeciwnym razie, jeżeli”. Dzięki niej możemy przygotować kilka warunków sprawdzanych po kolei.
+
+W lekcji mamy przykład oceny wyniku punktowego. Dziewięćdziesiąt punktów lub więcej oznacza wynik bardzo dobry. Siedemdziesiąt lub więcej, dobry. Pięćdziesiąt lub więcej, wystarczający. Pozostałe wyniki oznaczają konieczność poprawy. Jeżeli ktoś zdobył siedemdziesiąt trzy punkty, pierwszy warunek okaże się fałszywy, a drugi prawdziwy. Program wybierze wynik dobry i nie będzie już sprawdzał dalszych możliwości w tym samym łańcuchu.
+
+Kolejność ma znaczenie. Gdybyśmy zaczęli od sprawdzenia, czy ktoś ma co najmniej pięćdziesiąt punktów, również osoba z bardzo wysokim wynikiem mogłaby od razu otrzymać ocenę wystarczającą. Warunki powinny więc być ułożone zgodnie z zamierzonymi zasadami. Sprawdzaj także wartości na granicy, na przykład dokładnie siedemdziesiąt punktów.
+
+Kotlin ma jeszcze jedną wygodną możliwość. If nie musi tylko wybierać, którą instrukcję wykonać. Może też dać wartość, którą zapiszemy pod nazwą.
+
+Wyobraź sobie, że chcemy przygotować komunikat o zaliczeniu. Jeżeli liczba punktów wynosi co najmniej dziesięć, wybieramy napis „Zaliczone”. W przeciwnym razie wybieramy napis „Jeszcze trochę brakuje”. Dopiero potem wyświetlamy otrzymany tekst. Dla dwunastu punktów otrzymamy pierwszą odpowiedź. Dzięki temu nie musimy umieszczać oddzielnego polecenia wyświetlania w każdej części warunku.
+
+Gdy używasz if jako wyrażenia zwracającego wartość, zadbaj o to, by obie możliwe drogi prowadziły do potrzebnego wyniku. W naszych prostych przykładach oznacza to również dodanie else.
+
+Do tej pory zadawaliśmy pojedyncze pytania. W praktyce decyzja często zależy od kilku informacji jednocześnie. Do ich łączenia służą operatory logiczne.
+
+Pierwszy operator oznacza „i”. W Kotlinie zapisujemy go za pomocą dwóch znaków ampersand, nazywanych też znakami handlowego i. Wynik jest prawdziwy tylko wtedy, gdy oba połączone warunki są prawdziwe.
+
+Załóżmy, że uczestnik wydarzenia potrzebuje biletu i musi przybyć na czas. Ma bilet, ale się spóźnił. Pierwszy warunek jest prawdziwy, drugi fałszywy. W efekcie całe połączone pytanie daje false. Dopiero gdy uczestnik ma bilet i przyjdzie na czas, otrzymamy true.
+
+Drugi operator oznacza „lub”. Zapisujemy go za pomocą dwóch pionowych kresek. Tym razem wystarczy, że przynajmniej jeden warunek jest prawdziwy.
+
+Przykład z lekcji dotyczy wejścia dostępnego dla organizatora lub osoby mającej zaproszenie. Osoba nie jest organizatorem, ale ma zaproszenie. Może wejść, ponieważ drugi warunek został spełniony. Gdy oba warunki są prawdziwe, wynik również pozostaje true. W języku Kotlin takie „lub” nie oznacza, że prawdziwy musi być dokładnie jeden warunek.
+
+Trzeci operator to wykrzyknik, oznaczający logiczne „nie”. Odwraca wartość logiczną. True zmienia na false, a false na true.
+
+Wyobraź sobie informację o tym, czy sklep jest zamknięty. Jeżeli wartość isClosed wynosi false, sklep nie jest zamknięty. Wykrzyknik umieszczony przed tą nazwą da odpowiedź true. Właśnie dlatego program może wyświetlić informację, że sklep jest otwarty.
+
+Operatory logiczne można łączyć. W przykładowym sprawdzeniu danych wymagamy, aby osoba miała co najmniej osiemnaście lat, posiadała dokument i nie była zawieszona. Osoba w wieku dziewiętnastu lat, z dokumentem i bez zawieszenia, spełni wszystkie trzy warunki. Jeden niespełniony warunek wystarczy, aby wynik całego połączenia przez „i” był fałszywy.
+
+Nawiasy mogą w logice zmieniać sens całego sprawdzenia. Załóżmy, że do pomieszczenia mogą wejść właściciel lub moderator, ale każda z tych osób musi mieć kartę dostępu. Najpierw sprawdzamy w nawiasie, czy osoba ma jedną z dwóch ról, a później łączymy wynik z informacją o karcie. Właściciel bez karty nie wejdzie. Gdybyśmy inaczej pogrupowali warunki, moglibyśmy niechcący pozwolić właścicielowi wejść bez karty.
+
+Kotlin potrafi też pominąć sprawdzanie drugiej części, kiedy pierwsza już rozstrzyga wynik. Przy logicznym „i” pierwszy fałszywy warunek wystarczy, aby cały wynik był fałszywy. Przy logicznym „lub” pierwszy prawdziwy warunek wystarczy, aby cały wynik był prawdziwy. Nie musisz jeszcze zapamiętywać technicznej nazwy tego zachowania.
+
+Poznajmy teraz when. Jest to wygodny sposób wyboru jednej z wielu możliwości.
+
+Jeżeli program przechowuje numer dnia tygodnia, możemy przygotować odpowiedzi od jednego do siedmiu. Jedynka oznacza poniedziałek, dwójka wtorek, trójka środę i tak dalej aż do niedzieli. Dla liczby trzy program wyświetli środę. Jeżeli liczba nie pasuje do żadnego przygotowanego przypadku, możemy użyć else, aby wyjaśnić, że taki dzień nie istnieje.
+
+W konstrukcji when podajemy sprawdzaną wartość w nawiasach. Wewnątrz bloku umieszczamy kolejne przypadki. Każdy oddzielamy od jego wyniku strzałką złożoną z minusa i znaku większości. Kotlin wybiera pierwszy pasujący przypadek. Nie musimy pisać osobnego porównania w każdym wierszu.
+
+When świetnie sprawdza się również przy tekście. W lekcji program rozpoznaje polecenia start, stop i help. Każde uruchamia odpowiedni komunikat. Nieznane polecenie trafia do else. Jeżeli chcemy rozpoznawać również napisy wpisane z różną wielkością liter, możemy wcześniej zastosować metodę lowercase, która tworzy wersję napisu małymi literami.
+
+Można też połączyć kilka konkretnych wartości w jeden przypadek, oddzielając je przecinkami. Na przykład jabłko i gruszka mogą dawać wspólną odpowiedź „Owoc z sadu”.
+
+When można zapisać także bez sprawdzanej wartości w nawiasach. Wtedy poszczególne przypadki są pełnymi warunkami logicznymi. Program może kolejno oceniać, czy temperatura jest poniżej zera, poniżej piętnastu albo poniżej dwudziestu pięciu stopni. Przy dwudziestu dwóch stopniach otrzymamy odpowiedź „Przyjemnie”. Tak jak w łańcuchu else if, kolejność sprawdzania ma znaczenie. When może również zwracać wartość, na przykład opis oceny punktowej.
+
+Połączmy warunki z wprowadzaniem danych. Program pytający o wiek może najpierw skorzystać z toIntOrNull. Jeżeli nie uda się uzyskać liczby, pokaże odpowiedni błąd. Jeżeli liczba jest ujemna, wyjaśni, że wiek nie może być ujemny. Dopiero później sprawdzi, czy użytkownik ma co najmniej osiemnaście lat. Dzięki takiej kolejności unikamy podejmowania decyzji na podstawie niepoprawnych danych.
+
+Na koniec przejdźmy do mini-projektu: prostego systemu rezerwacji miejsc.
+
+Organizator ma pięć wolnych miejsc. Użytkownik wpisuje liczbę miejsc, które chciałby zarezerwować. Program sprawdza najpierw, czy wpis jest poprawną liczbą całkowitą. Następnie kontroluje, czy jest większa od zera. Jeżeli liczba przekracza pięć, informuje o braku wystarczającej liczby miejsc. W pozostałym przypadku przyjmuje rezerwację i oblicza, ile miejsc zostało.
+
+Jeśli podasz dwa, program przyjmie rezerwację i poinformuje, że pozostały trzy miejsca. Jeśli podasz pięć, przyjmie rezerwację i pokaże zero wolnych miejsc. Jeśli podasz sześć, wyświetli informację o braku miejsc. Zero, minus jeden oraz zwykły tekst również zostaną odrzucone z odpowiednim komunikatem.
+
+To jednorazowa symulacja rezerwacji. Nie zapisuje danych na stałe ani nie obsługuje wielu klientów jednocześnie. Naszym celem jest przećwiczenie prawidłowego wyboru jednej drogi w programie. W krótkim dodatkowym przykładzie when przypisuje czytelny komunikat do statusu rezerwacji: oczekującej, potwierdzonej lub anulowanej.
+
+Jeśli podczas ćwiczeń program wybiera niewłaściwą odpowiedź, przeczytaj warunki po kolei. Zastanów się, jakie wartości mają użyte zmienne, czy porównanie obejmuje wartość graniczną, i czy potrzebujesz „i”, czy „lub”. Sprawdź również, czy nie pomyliłaś pojedynczego znaku równości z porównaniem. Warto przetestować zarówno sytuację, w której warunek jest prawdziwy, jak i tę, w której jest fałszywy.
+
+Podsumujmy. If pozwala wykonać instrukcję po spełnieniu warunku, else określa drugą możliwość, a else if pozwala rozpatrywać kolejne pytania. Operatory logiczne łączą warunki lub odwracają odpowiedzi. When porządkuje wybór spośród wielu możliwości i może także zwracać wartość.
+
+Wróć teraz do ćwiczeń w wersji pisemnej. Sprawdź samodzielnie, jak zmiana wartości wpływa na wybraną drogę programu. W następnej lekcji nauczymy się powtarzać instrukcje za pomocą pętli.
+
+Do usłyszenia w lekcji piątej.
