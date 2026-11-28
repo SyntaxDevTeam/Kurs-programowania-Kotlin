@@ -29,6 +29,9 @@ Kurs w języku polskim dla osoby, która **nigdy wcześniej nie programowała**.
 - [Lekcja 05 — pętle i zakresy](lekcje/05_PETLE_I_ZAKRESY.md) — `for`, `while`, `do-while`, `until`, `downTo`, `step`, `break`, `continue`, **8 ćwiczeń**, mini-test i projekt dziennika wydatków.
 - [Lekcja 06 — funkcje i podział programu](lekcje/06_FUNKCJE_I_PODZIAL_PROGRAMU.md) — `fun`, parametry, `return`, `Unit`, argumenty domyślne i nazwane, zasięg zmiennych, **8 ćwiczeń**, mini-test oraz projekt kasy biletowej.
 - [Lekcja 07 — kolekcje](lekcje/07_KOLEKCJE.md) — listy, tablice, mapy, zbiory, wyszukiwanie, modyfikowanie, **8 ćwiczeń**, mini-test i domowa lista zakupów. [Wersja lektorska (TXT)](lektor/Lekcja_07_Tekst_dla_lektora.txt).
+- [Lekcja 08 — null, wyjątki, debugowanie i projekt konsolowy](lekcje/08_NULL_WYJATKI_I_PROJEKT_KONSOLOWY.md) — `?`, `?.`, `?:`, `try/catch`, debugger, **8 ćwiczeń**, mini-test i rejestr graczy. [Wersja lektorska (TXT)](lektor/Lekcja_08_Tekst_dla_lektora.txt).
+
+**Poziom I — Fundamenty Kotlina: ukończony (8/8 lekcji).**
 
 Pozostałe lekcje będą tworzone **po jednej**, a nie masowo. Każda zostanie udostępniona w osobnym pliku `.md`. Od lekcji 7 repozytorium zawiera również scenariusze dla lektora w katalogu `lektor/`, przygotowane na podstawie odpowiadającej im wersji pisemnej.
 

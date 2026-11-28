@@ -1,0 +1,122 @@
+Kotlin od zera — od pierwszego programu do pluginów Minecraft.
+Lekcja ósma. Null, wyjątki, debugowanie i projekt konsolowy.
+
+Witaj ponownie. To nasze ostatnie spotkanie na pierwszym poziomie kursu. Znasz już zmienne, typy danych, warunki, pętle, funkcje oraz sposoby przechowywania wielu informacji. Dzisiaj dowiesz się, co zrobić, gdy program nie otrzyma tego, czego oczekuje. Na zakończenie połączymy poznane umiejętności w jednym projekcie.
+
+Wyobraź sobie, że prosisz użytkownika o wpisanie liczby punktów. Użytkownik może wpisać dwadzieścia pięć, ale może też wpisać słowo kot. Może nie wpisać niczego. Podobnie, gdy szukamy danych w mapie, nie zawsze znajdziemy to, czego szukamy. Program powinien potrafić odróżnić poprawną wartość od jej braku i właściwie zareagować na problem.
+
+Zacznijmy od słowa null. Oznacza ono brak wartości. Pamiętasz mapę z cenami produktów z poprzedniej lekcji? W naszym przykładzie chleb kosztuje pięć złotych, a mleko cztery. Gdy odczytamy cenę chleba, otrzymamy pięć. Gdy poprosimy o cenę jogurtu, którego nie ma w mapie, otrzymamy null.
+
+Null nie jest zerem. Nie jest też pustym tekstem ani napisem składającym się z liter n, u, l, l. Pusty tekst istnieje, choć nie zawiera znaków. Zero jest prawdziwą liczbą. Słowo null zapisane w cudzysłowie to zwykły napis. Natomiast null bez cudzysłowu oznacza brak wartości. Ta różnica będzie szczególnie ważna w naszym końcowym rejestrze graczy. Gracz może mieć zero punktów i nadal istnieć.
+
+Kotlin pozwala określić, czy dany typ dopuszcza brak wartości. Znasz już typ String, czyli tekst, oraz Int, czyli liczbę całkowitą. Jeżeli za nazwą typu dodamy znak zapytania, informujemy Kotlin, że oprócz zwykłej wartości może pojawić się null. String ze znakiem zapytania dopuszcza tekst albo brak tekstu. Int ze znakiem zapytania dopuszcza liczbę całkowitą albo brak liczby.
+
+W przykładzie z imieniem tworzymy zmienną, która początkowo zawiera null. Później przypisujemy jej imię Ola. Obie wartości są dozwolone, ponieważ określiliśmy jej typ jako String ze znakiem zapytania. Gdybyśmy wybrali zwykły String, próba przypisania nulla spowodowałaby błąd kompilacji.
+
+Nie dopisuj znaku zapytania do każdego typu na wszelki wypadek. Jeżeli informacja jest obowiązkowa, zwykły typ pomoże Ci upewnić się, że rzeczywiście istnieje.
+
+Jak skorzystać z wartości, której może brakować? Jednym ze sposobów jest zwykły warunek if. Załóżmy, że imię może być nieobecne. Najpierw sprawdzamy, czy nie jest nullem. Jeżeli istnieje, odczytujemy jego długość. W przeciwnym razie wyświetlamy komunikat, że nie podano imienia.
+
+W naszym przykładzie imię Ola ma trzy litery. Po sprawdzeniu warunku Kotlin pozwala odczytać jego długość, ponieważ może mieć pewność, że lokalna wartość w tym miejscu nie jest nullem. Takie inteligentne rozpoznawanie typu po sprawdzeniu nazywa się smart cast. Nie musisz zapamiętywać tej nazwy od razu. Ważne jest, by przed skorzystaniem z wartości upewnić się, że ona istnieje.
+
+Czasem nie potrzebujemy całego warunku. Wystarczy nam informacja, że operację należy wykonać tylko wtedy, gdy wartość jest dostępna. Kotlin ma do tego bezpieczne wywołanie. Zapisujemy znak zapytania i kropkę bezpośrednio po nazwie wartości, a za nimi właściwość lub funkcję, z której chcemy skorzystać.
+
+W przykładzie z imieniem Ola bezpieczny odczyt długości daje trzy. Dla nieobecnego imienia daje null. Kotlin nie próbuje obliczyć długości czegoś, czego nie ma.
+
+Bezpieczne wywołania można łączyć. W kolejnym przykładzie mamy słowo kot otoczone spacjami. Funkcja trim usuwa spacje z początku i końca, a funkcja uppercase zamienia tekst na wielkie litery. Otrzymujemy słowo KOT zapisane wielkimi literami. Gdy tekstu brakuje, operacje są pomijane, a wynikiem całego łańcucha jest null.
+
+Zauważ, że bezpieczne wywołanie nie zastępuje braku wartości zerem ani pustym tekstem. Nadal możemy otrzymać null. Czasami jednak chcemy użyć w takiej sytuacji konkretnej wartości zastępczej.
+
+Do tego służy operator Elvisa. Zapisujemy znak zapytania i dwukropek. Operator sprawdza wartość po lewej stronie. Jeżeli istnieje, korzysta właśnie z niej. Gdy jej brakuje, wykorzystuje wartość po prawej stronie.
+
+Wyobraź sobie powitanie użytkownika. Jeżeli znamy jego imię, używamy tego imienia. Jeżeli go nie znamy, wstawiamy słowo Gość. W przykładzie z lekcji brak imienia powoduje wyświetlenie komunikatu „Witaj, Gość!”. Po podaniu imienia Ola otrzymamy „Witaj, Ola!”.
+
+Możemy także połączyć bezpieczne wywołanie z operatorem Elvisa. Najpierw próbujemy odczytać długość imienia. Jeżeli nie ma tekstu, wybieramy zero jako umowny wynik. W ten sposób otrzymujemy zwykłą liczbę całkowitą, nawet gdy imienia nie podano.
+
+Wartości zastępcze należy dobierać rozsądnie. Zero nie zawsze oznacza to samo co brak informacji. Co ważne, operator Elvisa reaguje wyłącznie na null. Jeśli liczba punktów wynosi zero, operator nie zastąpi jej dziesiątką. Jeżeli tekst jest pusty, operator nie zastąpi go napisem „brak”. Obie te wartości istnieją.
+
+W kodzie można spotkać również dwa wykrzykniki. Oznaczają one zapewnienie programisty, że dana wartość na pewno nie jest nullem. Jeśli to zapewnienie okaże się nieprawdziwe, program zgłosi wyjątek. Na tym etapie unikaj takiego zapisu. Znacznie lepiej sprawdzić wartość albo użyć bezpiecznego wywołania.
+
+Wróćmy teraz do pobierania danych. W trzeciej lekcji poznaliśmy funkcję toIntOrNull. Jeśli przekażemy jej tekst przedstawiający liczbę dwadzieścia pięć, otrzymamy liczbę dwadzieścia pięć. Jeżeli przekażemy słowo kot, otrzymamy null. Podobnie będzie wtedy, gdy wpisana liczba jest zbyt duża, aby zmieścić się w typie Int.
+
+Dzisiaj poznamy jeszcze funkcję readlnOrNull, która pobiera kolejny wiersz tekstu. Jeżeli wejście programu się zakończyło i nie ma kolejnego wiersza, funkcja zwraca null. Samo naciśnięcie Enter bez wpisywania tekstu nie oznacza jednak braku wiersza. Otrzymujemy wtedy pusty napis.
+
+Połączmy te elementy. Program prosi o podanie liczby punktów. Najpierw pobiera tekst, następnie usuwa zbędne spacje z jego początku i końca i próbuje zamienić go na liczbę całkowitą. Bezpieczne wywołania sprawiają, że w przypadku braku danych nie wykonujemy niepotrzebnych operacji.
+
+Potem sprawdzamy wynik. Dwadzieścia pięć jest poprawną liczbą punktów. Zero również jest poprawne. Minus dwa jest wprawdzie liczbą całkowitą, ale nie spełnia zasad naszego programu, dlatego wyświetlamy komunikat o niedozwolonych ujemnych punktach. W przypadku słowa kot lub pustego wpisu informujemy, że nie podano poprawnej liczby całkowitej.
+
+Widzisz więc, że sama poprawna konwersja nie wystarcza. Musimy również sprawdzać, czy uzyskana wartość ma sens w danym zastosowaniu.
+
+Przejdźmy do błędów i wyjątków. Nie każdy błąd jest taki sam. Wyróżnimy trzy rodzaje problemów.
+
+Pierwszy to błąd kompilacji. Program nie może zostać poprawnie skompilowany, na przykład dlatego, że próbujemy przypisać null do zwykłego typu String.
+
+Drugi to błąd podczas działania. Kod się kompiluje, ale podczas jego wykonywania pojawia się problem. Przykładem jest próba zamiany słowa kot na liczbę za pomocą zwykłej funkcji toInt.
+
+Trzeci to błąd logiczny. Program uruchamia się i kończy, ale zwraca nieprawidłowy wynik. Może się tak stać, gdy przez pomyłkę dodamy liczby, zamiast je pomnożyć.
+
+Wyjątek to informacja o nieprawidłowej sytuacji podczas wykonywania programu. Jeśli nie zostanie obsłużony, może przerwać działanie programu.
+
+W Kotlinie możemy przechwytywać wyjątki za pomocą konstrukcji try i catch. Słowo try oznacza próbę wykonania określonych instrukcji. Słowo catch określa, co zrobić, jeżeli pojawi się konkretny rodzaj wyjątku.
+
+W naszym przykładzie próbujemy zamienić słowo kot na liczbę przez toInt. Ta funkcja zgłasza wyjątek o nazwie NumberFormatException, czyli wyjątek nieprawidłowego formatu liczby. W bloku catch obsługujemy właśnie ten rodzaj problemu. Program wyświetla informację, że nie udało się odczytać liczby. Następnie wykonuje dalsze instrukcje i pokazuje komunikat „Program działa dalej”.
+
+Jeżeli zamienimy słowo kot na tekst przedstawiający dwadzieścia pięć, konwersja się uda. Blok catch nie zostanie wykonany, ale ostatni komunikat nadal się pojawi.
+
+Nie musisz używać try i catch za każdym razem, gdy użytkownik wpisze niepoprawną liczbę. Jeśli taka sytuacja jest spodziewana, często wygodniej skorzystać z funkcji toIntOrNull, którą już znasz. Obsługa wyjątków przydaje się szczególnie wtedy, gdy używana funkcja właśnie w ten sposób informuje o problemie.
+
+Poznajmy drugi rodzaj wyjątku. Na platformie JVM próba dzielenia liczby całkowitej przez zero powoduje ArithmeticException, czyli wyjątek związany z działaniem arytmetycznym. W naszym przykładzie próbujemy podzielić dwanaście przez zero. Przechwytujemy wyjątek i wyświetlamy komunikat, że nie można tego zrobić. Następnie wykonujemy poprawne dzielenie dwunastu przez trzy. Otrzymujemy cztery.
+
+Możemy mieć również więcej niż jeden blok catch. W kolejnym przykładzie najpierw konwertujemy tekst dwanaście na liczbę, a później próbujemy podzielić ją przez zero. Konwersja się udaje, lecz dzielenie powoduje wyjątek. Program wybiera więc blok obsługujący błąd arytmetyczny. Jeśli zamiast tekstu dwanaście podamy słowo kot, pojawi się błąd konwersji, a do dzielenia w ogóle nie dojdzie.
+
+Właśnie dlatego warto obsługiwać konkretne rodzaje wyjątków. Nie przechwytuj wszystkiego tylko po to, by ukryć błędy. Dobry program powinien albo sensownie zareagować na problem, albo pozostawić informacje potrzebne do jego rozpoznania.
+
+Try i catch mogą także zwracać wartość. W naszej lekcji pokazujemy przykład, w którym poprawna konwersja daje liczbę, a przechwycony wyjątek daje null. Operator Elvisa zamienia następnie brak wyniku na komunikat „Brak poprawnej liczby”.
+
+Istnieje jeszcze opcjonalny blok finally. W normalnym przebiegu konstrukcji try wykonuje się zarówno wtedy, gdy próba zakończy się pomyślnie, jak i wtedy, gdy wystąpi wyjątek. W przykładzie najpierw wyświetlamy informację o rozpoczęciu sprawdzania. Próba konwersji słowa kot kończy się błędem, a program pokazuje komunikat o błędnych danych. Na koniec blok finally wyświetla „Zakończono sprawdzanie”. Jeżeli konwersja będzie poprawna, ten ostatni komunikat również się pojawi. W większych projektach finally przydaje się do porządkowania zasobów po wykonanej pracy.
+
+Czas na debugowanie. To szukanie przyczyn niewłaściwego działania programu. Nie zawsze potrzebujemy do tego specjalnego narzędzia. Na początek wystarczy czasem wyświetlenie wartości zmiennych w odpowiednim miejscu.
+
+Wyobraź sobie zakup trzech zeszytów po osiem złotych. Oczekujemy kwoty dwadzieścia cztery złote, ale nasz pierwszy program wypisuje jedenaście. Program się uruchamia, więc nie jest to błąd kompilacji. Nie pojawia się także wyjątek. Przyczyną jest błąd logiczny: dodaliśmy cenę i liczbę sztuk, zamiast je pomnożyć.
+
+W poprawionej wersji dodajemy pomocniczy komunikat, który wyświetla cenę równą osiem i liczbę sztuk równą trzy. Następnie mnożymy obie wartości. Otrzymujemy dwadzieścia cztery złote. Po rozwiązaniu problemu możemy usunąć komunikat pomocniczy.
+
+W IntelliJ IDEA mamy również debugger. Pozwala zatrzymać wykonywanie programu w wybranym miejscu i sprawdzić, co się w nim dzieje. Punkt zatrzymania nazywamy breakpointem. Możesz go ustawić, klikając na lewym marginesie edytora obok interesującej Cię instrukcji.
+
+W naszej lekcji ustawiamy breakpoint przy obliczaniu łącznej kwoty. Uruchamiamy program opcją Debug zamiast Run. Kiedy wykonanie się zatrzyma, sprawdzamy zmienne w odpowiednim panelu. Cena powinna wynosić osiem, liczba sztuk trzy. Opcja Step Over pozwala wykonać bieżącą instrukcję. Wtedy możemy zobaczyć wynik mnożenia, czyli dwadzieścia cztery. Opcja Resume Program wznawia działanie programu. W wersji pisemnej znajdziesz instrukcję, jak samodzielnie wykonać to ćwiczenie.
+
+Jeżeli Twój program zgłosi nieobsłużony wyjątek, w konsoli może pojawić się jego nazwa, opis oraz lista miejsc wywołań funkcji. Tę listę nazywamy stack trace, czyli śladem stosu. Nie musisz rozumieć każdej linijki. Spróbuj odszukać pierwsze miejsce odnoszące się do własnego pliku i numeru linii. Sprawdź, jakie dane trafiły do tej instrukcji.
+
+Najlepiej najpierw odtworzyć problem, potem sprawdzić komunikat i wartości zmiennych, poprawić jedną rzecz i uruchomić program ponownie. Pamiętaj także o sprawdzeniu przypadków, które działały poprawnie przed zmianą.
+
+Czas na projekt kończący pierwszy poziom. Stworzymy konsolowy rejestr graczy. To nie jest jeszcze plugin i nie łączy się z prawdziwym serwerem Minecraft. Samodzielnie wprowadzamy dane do programu. Przechowujemy nick każdego gracza oraz jego liczbę punktów. Po zakończeniu programu dane znikają, ponieważ zapisujemy je tylko w pamięci.
+
+Najpierw wybierzemy właściwą strukturę danych. Najlepiej sprawdzi się modyfikowalna mapa. Nick będzie kluczem tekstowym, a liczba punktów wartością całkowitą. Nie chcemy powtórzonych kluczy ani przypadkowego nadpisania danych. Dlatego przed dodaniem nowego gracza sprawdzimy, czy jego nick nie istnieje już w rejestrze.
+
+Program ma sześć opcji. Jedynka dodaje gracza. Dwójka wyświetla wszystkich graczy. Trójka wyszukuje osobę po nicku. Czwórka zmienia liczbę punktów. Piątka usuwa gracza. Zero kończy program.
+
+Menu wyświetla się w pętli while. Użytkownik wybiera opcję, a instrukcja when uruchamia odpowiednią funkcję. Jeżeli wybór jest nieznany, program informuje o tym i wraca do menu. Opcja zero kończy pętlę. Tak samo dzieje się, gdy wejście programu zostanie zakończone.
+
+Dwie funkcje pomocnicze odpowiadają za pobranie nicku i punktów. Nick nie może być pusty po usunięciu zbędnych spacji. Rozróżniamy małe i wielkie litery. Punkty muszą być nieujemną liczbą całkowitą mieszczącą się w typie Int. Jeśli dane są niepoprawne, funkcja wyświetla komunikat i zwraca null.
+
+W funkcji dodawania wykorzystujemy operator Elvisa razem ze słowem return. Jeżeli nie udało się pobrać danych, kończymy tylko tę funkcję. Główna pętla programu może nadal działać i ponownie pokazać menu. Dzięki temu nie musimy wykonywać dalszych czynności z brakującymi informacjami.
+
+Zobaczmy, jak działa rejestr. Najpierw dodajemy Alexa z zerem punktów. Następnie dodajemy Maję z piętnastoma punktami. Wybieramy opcję wyświetlenia wszystkich graczy i otrzymujemy oba nicki oraz informację, że w rejestrze są dwie osoby.
+
+Teraz wyszukujemy Alexa. Program zwraca informację, że Alex ma zero punktów. Zero jest prawidłową wartością. Dopiero gdy odczyt z mapy daje null, wiemy, że w naszym rejestrze nie ma szukanego gracza. Właśnie tutaj widzisz praktyczne znaczenie rozróżnienia, od którego zaczęliśmy tę lekcję.
+
+Spróbujmy dodać Alexa drugi raz. Program informuje, że gracz już istnieje, i nie zmienia jego punktów. Jeśli spróbujemy dodać Lenę, ale zamiast punktów podamy słowo kot albo minus pięć, wpis nie powstanie. Wyszukanie Leny zwróci więc informację, że nie znaleziono gracza.
+
+Następnie ustawiamy punkty Alexa na dwadzieścia i usuwamy Maję. Jeżeli spróbujemy usunąć Maję ponownie, program poinformuje, że jej nie ma. Wyświetlenie rejestru pokaże już tylko Alexa z dwudziestoma punktami oraz liczbę graczy równą jeden. Gdy wybierzemy dziewiątkę, otrzymamy informację o nieznanej opcji. Wybór zera wyświetli pożegnanie i zakończy program.
+
+Zwróć uwagę, że w projekcie nie używamy try i catch na siłę. Niepoprawne liczby obsługujemy przez toIntOrNull. Wyjątki ćwiczyliśmy wcześniej, w osobnych programach. Dobry program korzysta z konstrukcji odpowiedniej do problemu, a nie ze wszystkich poznanych naraz.
+
+W ramach zadania zaliczeniowego spróbuj rozbudować rejestr o szóstą opcję, która oblicza łączną liczbę punktów wszystkich graczy. W wersji pisemnej znajdziesz dokładne wymagania, ćwiczenia i rozwiązania, do których możesz zajrzeć po samodzielnej próbie.
+
+To również dobry moment na przypomnienie sobie całego pierwszego poziomu. Potrafisz już uruchamiać programy, przechowywać dane, wykonywać obliczenia i odczytywać informacje od użytkownika. Wiesz, jak podejmować decyzje, powtarzać instrukcje, dzielić program na funkcje oraz przechowywać wiele danych w kolekcjach. Dzisiaj dowiedziałaś się także, jak bezpiecznie reagować na brak wartości i przewidywalne problemy.
+
+Nie musisz znać na pamięć każdej funkcji ani samodzielnie odtworzyć całego projektu z pamięci. Ważne, aby umieć wyjaśnić, co robią poszczególne fragmenty programu, oraz korzystać z poznanych konstrukcji przy rozwiązywaniu nowych zadań.
+
+Przed przejściem dalej uruchom przykłady z lekcji i wykonaj ćwiczenia. Jeżeli rejestr wydaje Ci się jeszcze trudny, wróć do funkcji w lekcji szóstej, map w lekcji siódmej i pętli w lekcji piątej. Rozumienie podstaw jest ważniejsze niż szybkie przechodzenie do następnych tematów.
+
+Gratulacje. To koniec pierwszego poziomu kursu Kotlina. W kolejnym poziomie zajmiemy się programowaniem obiektowym. W lekcji dziewiątej poznasz klasy, obiekty i modele danych. Dzięki nim nauczysz się tworzyć własne rodzaje informacji i jeszcze lepiej porządkować większe programy. Do usłyszenia.
